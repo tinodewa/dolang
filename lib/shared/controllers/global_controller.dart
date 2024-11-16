@@ -15,25 +15,25 @@ class GlobalController extends GetxController {
   var isStaging = false.obs;
 
   /// Location
-  RxString statusLocation = RxString('loading');
-  RxString messageLocation = RxString('');
-  RxnString address = RxnString();
+  // RxString statusLocation = RxString('loading');
+  // RxString messageLocation = RxString('');
+  // RxnString address = RxnString();
 
   @override
   void onInit() {
     super.onInit();
 
     /// Check Connection
-    // checkConnection();
+    checkConnection();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  // @override
+  // void onReady() {
+  //   super.onReady();
 
-    // getLocation();
-    // LocationServices.streamService.listen((status) => getLocation());
-  }
+  // getLocation();
+  // LocationServices.streamService.listen((status) => getLocation());
+  // }
 
   // Future<void> checkAuth() async {
   //   final isLogin = await LocalStorageService.getAuth();
@@ -49,23 +49,23 @@ class GlobalController extends GetxController {
   //   }
   // }
 
-  // /// Check Connection Setting
-  // Future<void> checkConnection() async {
-  //   try {
-  //     final result = await InternetAddress.lookup('www.google.com');
-  //     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-  //       isConnect.value = true;
-  //     }
-  //   } on SocketException catch (exception, stackTrace) {
-  //     isConnect.value = false;
-  //     await Sentry.captureException(
-  //       exception,
-  //       stackTrace: stackTrace,
-  //     );
+  /// Check Connection Setting
+  Future<void> checkConnection() async {
+    try {
+      final result = await InternetAddress.lookup('www.google.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        isConnect.value = true;
+      }
+    } on SocketException catch (exception, stackTrace) {
+      isConnect.value = false;
+      await Sentry.captureException(
+        exception,
+        stackTrace: stackTrace,
+      );
 
-  //     Get.offAllNamed(Routes.noConnectionRoute);
-  //   }
-  // }
+      // Get.offAllNamed(Routes.noConnectionRoute);
+    }
+  }
 
   // Future<void> getLocation() async {
   //   if (Get.isDialogOpen == false) {

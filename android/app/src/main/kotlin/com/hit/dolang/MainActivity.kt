@@ -1,4 +1,4 @@
-package com.example.dolang
+package com.hit.dolang
 
 import io.flutter.embedding.android.FlutterActivity
 

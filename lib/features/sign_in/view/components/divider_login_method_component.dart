@@ -14,16 +14,16 @@ class DividerLoginMethodComponent extends StatelessWidget {
         // Add the first divider
         Flexible(
           child: Divider(
-            color: ColorStyle.greyDark,
+            color: ColorStyle.greyDark50,
           ),
         ),
         // Add the text in the middle
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: 13),
           child: Text(
             'or',
             style: TextStyle(
-              color: ColorStyle.greyDark,
+              color: ColorStyle.blackMedium,
               backgroundColor: Colors.transparent,
               fontSize: 14.0,
             ),
@@ -32,7 +32,7 @@ class DividerLoginMethodComponent extends StatelessWidget {
         // Add the second divider
         Flexible(
           child: Divider(
-            color: ColorStyle.greyDark,
+            color: ColorStyle.greyDark50,
           ),
         ),
       ],

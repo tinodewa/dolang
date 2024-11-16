@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "705642506461",
+    "project_id": "dolang-2de3c",
+    "storage_bucket": "dolang-2de3c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705642506461:android:0c34c7fb4d94143fa1d334",
+        "android_client_info": {
+          "package_name": "com.hit.dolang"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNdqu7Z1HLYhLYnagdE9uqVsLnQsGDOgM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
