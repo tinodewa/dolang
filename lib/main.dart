@@ -6,6 +6,7 @@ import 'package:dolang/configs/routes/route.dart';
 import 'package:dolang/configs/themes/theme.dart';
 import 'package:dolang/firebase_options.dart';
 import 'package:dolang/shared/bindings/global_binding.dart';
+import 'package:dolang/utils/services/local_storage_service.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +16,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
-void main() async {
+Future<void> main() async {
   // RunZoneGuarded untuk menangkap error yang terjadi di dalam aplikasi
   runZonedGuarded(
     () async {
       /// Initialize Flutter
       WidgetsFlutterBinding.ensureInitialized();
+
+      /// Localstorage init
+      LocalStorageService().init();
 
       /// Initialize Firebase
       await Firebase.initializeApp(
@@ -31,7 +35,7 @@ void main() async {
       await SentryFlutter.init(
         (options) {
           options.dsn =
-              'https://0ea47331b261fbebcaf185848527961b@o4508052527448064.ingest.us.sentry.io/4508052530135040';
+              'https://9202f7beb6350417b3b98e905e5bd234@o4508052527448064.ingest.us.sentry.io/4508315519614976';
           options.tracesSampleRate = 1.0;
           options.profilesSampleRate = 1.0;
         },
@@ -48,11 +52,12 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({
+    super.key,
+  });
 
   static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     analytics.logScreenView(
@@ -77,7 +82,7 @@ class MyApp extends StatelessWidget {
           title: 'Dolang',
           debugShowCheckedModeBanner: false,
           initialBinding: GlobalBinding(),
-          initialRoute: Routes.signInRoute,
+          initialRoute: Routes.splashRoute,
           theme: themeLight,
           defaultTransition: Transition.native,
           getPages: Pages.pages,

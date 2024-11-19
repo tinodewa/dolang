@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dolang/configs/routes/route.dart';
 import 'package:dolang/constants/core/assets/image_constant.dart';
 import 'package:dolang/features/sign_in/constants/sign_in_assets_constant.dart';
 import 'package:dolang/features/sign_in/view/components/button_login_component.dart';
@@ -18,6 +19,7 @@ class SignInScreen extends StatelessWidget {
 
   final assetsConstant = SignInAssetsConstant();
   static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+
   @override
   Widget build(BuildContext context) {
     analytics.logScreenView(
@@ -27,7 +29,6 @@ class SignInScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: null,
-      extendBody: false,
       backgroundColor: ColorStyle.white,
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
@@ -113,7 +114,7 @@ class SignInScreen extends StatelessWidget {
                       SizedBox(width: 4.h),
                       GestureDetector(
                         onTap: () {
-                          // Get.toNamed(Routes.forgotPasswordRoute);
+                          Get.toNamed(Routes.signUpRoute);
                         },
                         child: Text(
                           'Daftar'.tr,

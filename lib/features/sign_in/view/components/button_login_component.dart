@@ -1,3 +1,4 @@
+import 'package:dolang/features/sign_in/controllers/sign_in_controller.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class ButtonLoginComponent extends StatelessWidget {
       child: TextButton(
         onPressed: () {
           try {
-            // SignInController.to.validateForm(context);
+            SignInController.to.validateForm(context);
           } catch (exception, stackTrace) {
             Sentry.captureException(
               exception,

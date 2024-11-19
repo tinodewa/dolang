@@ -1,4 +1,5 @@
 import 'package:dolang/constants/core/assets/icon_constant.dart';
+import 'package:dolang/features/sign_in/controllers/sign_in_controller.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class ButtonSocialMediaLoginComponent extends StatelessWidget {
         onPressed: () {
           if (buttonText == 'Google') {
             try {
-              // SignInController.to.signInWithGoogle(context);
+              SignInController.to.signInWithGoogle(context);
             } catch (exception, stackTrace) {
               Sentry.captureException(
                 exception,

@@ -1,3 +1,3 @@
-    class SignInApiConstant {
-    final String example = 'example';
-    }
+class SignInApiConstant {
+  final String login = 'users';
+}

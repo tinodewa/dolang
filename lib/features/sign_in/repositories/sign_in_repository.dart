@@ -1,4 +1,7 @@
 import 'package:dolang/features/sign_in/constants/sign_in_api_constant.dart';
+import 'package:dolang/features/sign_in/models/users_model.dart';
+import 'package:dolang/utils/services/dio_service.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 class SignInRepository {
   SignInRepository._();
@@ -13,69 +16,89 @@ class SignInRepository {
 
   var apiConstant = SignInApiConstant();
 
-  // Future<UsersModel?> loginRequest(String email, String password) async {
-  //   try {
-  //     final response = await DioService.dioCall(token: 'token').post(
-  //       apiConstant.emailPassLogin,
-  //       data: {
-  //         'email': email,
-  //         'password': password,
-  //       },
-  //     );
+  Future<List<UsersModel>?> getUsers() async {
+    try {
+      final response = await DioService.dioCall().get(
+        apiConstant.login,
+      );
 
-  //     if (response.statusCode == 200) {
-  //       return UsersModel.fromJson(response.data);
-  //     } else {
-  //       return null;
-  //     }
-  //   } catch (exception, stackTrace) {
-  //     await Sentry.captureException(
-  //       exception,
-  //       stackTrace: stackTrace,
-  //     );
-  //     return null;
-  //   }
-  // }
+      if (response.statusCode == 200) {
+        List<UsersModel> users = [];
+        response.data.forEach((user) {
+          users.add(UsersModel.fromJson(user));
+        });
+        return users;
+      } else {
+        return null;
+      }
+    } catch (exception, stackTrace) {
+      await Sentry.captureException(
+        exception,
+        stackTrace: stackTrace,
+      );
+      return null;
+    }
+  }
 
-  // Future<UsersModel?> loginRequestGoogle(
-  //     String email, String nama, bool isGoogle) async {
-  //   try {
-  //     final response = await DioService.dioCall().post(
-  //       apiConstant.googleLogin,
-  //       data: {
-  //         'email': email,
-  //         'nama': nama,
-  //         'is_google': isGoogle,
-  //       },
-  //     );
+  Future<UsersModel?> createuser(
+    String? username,
+    String? email,
+    String? photoUrl,
+    String? phoneNumber,
+    String? password,
+  ) async {
+    try {
+      final response = await DioService.dioCall().post(
+        apiConstant.login,
+        data: {
+          'username': username ?? '',
+          'password': password ?? '',
+          'email': email ?? '',
+          'phone_number': phoneNumber ?? '',
+          'photoUrl': photoUrl ?? '',
+          'address': '',
+          'createdAt': DateTime.now().toString(),
+          'updatedAt': DateTime.now().toString(),
+        },
+      );
 
-  //     if (response.statusCode == 200) {
-  //       return UsersModel.fromJson(response.data);
-  //     } else {
-  //       return null;
-  //     }
-  //   } catch (exception, stackTrace) {
-  //     await Sentry.captureException(
-  //       exception,
-  //       stackTrace: stackTrace,
-  //     );
-  //     return null;
-  //   }
-  // }
+      if (response.statusCode == 200) {
+        return UsersModel.fromJson(response.data);
+      } else {
+        return null;
+      }
+    } catch (exception, stackTrace) {
+      await Sentry.captureException(
+        exception,
+        stackTrace: stackTrace,
+      );
+      return null;
+    }
+  }
 
-  // Future<void> logout() async {
-  //   try {
-  //     await DioService.dioCall().get(
-  //       '/auth/logout',
-  //     );
-  //     await LocalStorageService.deleteAuth();
+  Future<UsersModel?> loginRequestGoogle(
+      String email, String nama, bool isGoogle) async {
+    try {
+      final response = await DioService.dioCall().post(
+        apiConstant.login,
+        data: {
+          'email': email,
+          'nama': nama,
+          'is_google': isGoogle,
+        },
+      );
 
-  //     Get.offAllNamed(Routes.signInRoute);
-  //   } catch (exception, stackTrace) {
-  //     await Sentry.captureException(
-  //       exception,
-  //       stackTrace: stackTrace,
-  //     );
-  //   }
-  // }
+      if (response.statusCode == 200) {
+        return UsersModel.fromJson(response.data);
+      } else {
+        return null;
+      }
+    } catch (exception, stackTrace) {
+      await Sentry.captureException(
+        exception,
+        stackTrace: stackTrace,
+      );
+      return null;
+    }
+  }
 }
