@@ -63,11 +63,11 @@ class SignInController extends GetxController {
 
       formKey.currentState!.save();
       try {
-        bool isRegistered = await checkEmailRegistered(
+        UsersModel? usersModel = await checkEmailRegistered(
           emailController.text,
         );
-        if (isRegistered) {
-          await LocalStorageService.setAuth();
+        if (usersModel != null) {
+          await LocalStorageService.setAuth(usersModel);
           EasyLoading.dismiss();
           GlobalController.to.checkAuth();
         } else {
@@ -121,11 +121,11 @@ class SignInController extends GetxController {
       UserCredential? googleAuth = await signInFirebase.signInWithGoogle();
 
       if (googleAuth?.user != null) {
-        bool isRegistered = await checkEmailRegistered(
+        UsersModel? usersModel = await checkEmailRegistered(
           googleAuth!.user!.email!,
         );
-        if (isRegistered) {
-          await LocalStorageService.setAuth();
+        if (usersModel != null) {
+          await LocalStorageService.setAuth(usersModel);
           EasyLoading.dismiss();
           GlobalController.to.checkAuth();
         } else {
@@ -136,7 +136,7 @@ class SignInController extends GetxController {
             '',
             '',
           );
-          await LocalStorageService.setAuth();
+          await LocalStorageService.setAuth(usersModel);
           EasyLoading.dismiss();
           GlobalController.to.checkAuth();
         }
@@ -176,7 +176,7 @@ class SignInController extends GetxController {
   }
 
   // check email is already registered
-  Future<bool> checkEmailRegistered(String email) async {
+  Future<UsersModel?> checkEmailRegistered(String email) async {
     try {
       await GlobalController.to.checkConnection();
 
@@ -184,17 +184,17 @@ class SignInController extends GetxController {
       if (usersModel != null) {
         for (var user in usersModel) {
           if (user.email == email) {
-            return true;
+            return user;
           }
         }
       }
-      return false;
+      return null;
     } catch (exception, stackTrace) {
       await Sentry.captureException(
         exception,
         stackTrace: stackTrace,
       );
-      return false;
+      return null;
     }
   }
 }

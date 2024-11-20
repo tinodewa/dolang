@@ -1,3 +1,4 @@
+import 'package:dolang/features/sign_in/models/users_model.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 
@@ -20,9 +21,28 @@ class LocalStorageService extends GetxService {
     await Hive.initFlutter();
   }
 
-  static Future<void> setAuth() async {
+  static Future<void> setAuth(UsersModel? usersModel) async {
     await Hive.openBox(_boxName);
     await box.put('isLogin', true);
+    await box.put('userId', usersModel!.userId);
+    await box.put('username', usersModel.username);
+    await box.put('email', usersModel.email);
+    await box.put('phoneNumber', usersModel.phoneNumber);
+    await box.put('address', usersModel.address);
+    await box.put('photoUrl', usersModel.photoUrl);
+  }
+
+  static Future<UsersModel?> getLoggedUserData() async {
+    await Hive.openBox(_boxName);
+    UsersModel? usersModel = UsersModel(
+      userId: box.get('userId'),
+      username: box.get('username'),
+      email: box.get('email'),
+      phoneNumber: box.get('phoneNumber'),
+      address: box.get('address'),
+      photoUrl: box.get('photoUrl'),
+    );
+    return usersModel;
   }
 
   static Future<bool?> getAuth() async {

@@ -7,16 +7,19 @@ class UsersModel {
   String? createdAt;
   String? updatedAt;
   String? userId;
+  String? photoUrl;
 
-  UsersModel(
-      {this.username,
-      this.password,
-      this.email,
-      this.phoneNumber,
-      this.address,
-      this.createdAt,
-      this.updatedAt,
-      this.userId});
+  UsersModel({
+    this.username,
+    this.password,
+    this.email,
+    this.phoneNumber,
+    this.address,
+    this.createdAt,
+    this.updatedAt,
+    this.userId,
+    this.photoUrl,
+  });
 
   UsersModel.fromJson(Map<String, dynamic> json) {
     username = json['username'];
@@ -27,6 +30,7 @@ class UsersModel {
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     userId = json['user_id'];
+    photoUrl = json['photoUrl'];
   }
 
   Map<String, dynamic> toJson() {
@@ -39,6 +43,7 @@ class UsersModel {
     data['createdAt'] = createdAt;
     data['updatedAt'] = updatedAt;
     data['user_id'] = userId;
+    data['photoUrl'] = photoUrl;
     return data;
   }
 }

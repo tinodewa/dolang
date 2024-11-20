@@ -108,7 +108,7 @@ class SignUpController extends GetxController {
                 phoneNumberController.text,
                 passwordController.text,
               );
-              await LocalStorageService.setAuth();
+              await LocalStorageService.setAuth(usersModel);
               EasyLoading.dismiss();
               GlobalController.to.checkAuth();
             }

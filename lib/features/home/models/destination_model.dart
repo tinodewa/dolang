@@ -8,6 +8,8 @@ class DestinationModel {
   String? updatedAt;
   String? pricePerPerson;
   String? photo;
+  String? latitude;
+  String? longitude;
   String? destinationId;
 
   DestinationModel(
@@ -20,6 +22,8 @@ class DestinationModel {
       this.updatedAt,
       this.pricePerPerson,
       this.photo,
+      this.latitude,
+      this.longitude,
       this.destinationId});
 
   DestinationModel.fromJson(Map<String, dynamic> json) {
@@ -32,6 +36,8 @@ class DestinationModel {
     updatedAt = json['updatedAt'];
     pricePerPerson = json['pricePerPerson'];
     photo = json['photo'];
+    latitude = json['latitude'];
+    longitude = json['longitude'];
     destinationId = json['destination_id'];
   }
 
@@ -46,6 +52,8 @@ class DestinationModel {
     data['updatedAt'] = updatedAt;
     data['pricePerPerson'] = pricePerPerson;
     data['photo'] = photo;
+    data['latitude'] = latitude;
+    data['longitude'] = longitude;
     data['destination_id'] = destinationId;
     return data;
   }

@@ -8,4 +8,5 @@ abstract class Routes {
   static const String noLocationRoute = '/no_location';
   static const String noConnectionRoute = '/no_connection';
 static const String splashRoute = '/splash';
+static const String homeDetailDestinationRoute = '/home_detail_destination';
 }
