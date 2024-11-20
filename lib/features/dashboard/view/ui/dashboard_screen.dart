@@ -1,3 +1,4 @@
+import 'package:dolang/features/bookmark/view/ui/bookmark_screen.dart';
 import 'package:dolang/features/dashboard/constants/dashboard_assets_constant.dart';
 import 'package:dolang/features/home/view/ui/home_screen.dart';
 import 'package:dolang/features/profile/view/ui/profile_screen.dart';
@@ -34,17 +35,7 @@ class DashboardScreen extends StatelessWidget {
             ),
 
             /// Favorite page
-            const Card(
-              shadowColor: Colors.transparent,
-              margin: EdgeInsets.all(8.0),
-              child: SizedBox.expand(
-                child: Center(
-                  child: Text(
-                    'Favorite page',
-                  ),
-                ),
-              ),
-            ),
+            BookmarkScreen(),
 
             /// Profile page
             ProfileScreen(),

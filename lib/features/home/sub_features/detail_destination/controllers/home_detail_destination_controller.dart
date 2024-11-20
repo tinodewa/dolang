@@ -1,3 +1,4 @@
+import 'package:dolang/features/bookmark/controllers/bookmark_controller.dart';
 import 'package:dolang/features/home/models/bookmark_model.dart';
 import 'package:dolang/features/home/models/destination_model.dart';
 import 'package:dolang/features/home/sub_features/detail_destination/repositories/detail_destination_repository.dart';
@@ -28,6 +29,12 @@ class HomeDetailDestinationController extends GetxController {
     super.onInit();
     userModel.value = await LocalStorageService.getLoggedUserData();
     checkBookmarkStatus();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    BookmarkController.to.getBookmarks();
   }
 
   Future<void> openOnMaps() async {
