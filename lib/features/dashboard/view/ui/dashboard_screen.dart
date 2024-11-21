@@ -1,4 +1,3 @@
-import 'package:dolang/features/bookmark/view/ui/bookmark_screen.dart';
 import 'package:dolang/features/dashboard/constants/dashboard_assets_constant.dart';
 import 'package:dolang/features/home/view/ui/home_screen.dart';
 import 'package:dolang/features/profile/view/ui/profile_screen.dart';
@@ -33,9 +32,6 @@ class DashboardScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-            /// Favorite page
-            BookmarkScreen(),
 
             /// Profile page
             ProfileScreen(),
@@ -77,17 +73,6 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ),
                 label: 'Books',
-              ),
-              NavigationDestination(
-                selectedIcon: Icon(
-                  Icons.favorite,
-                  color: ColorStyle.primary,
-                ),
-                icon: Icon(
-                  Icons.favorite_border,
-                  color: ColorStyle.blackMedium50,
-                ),
-                label: 'Favorites',
               ),
               NavigationDestination(
                 selectedIcon: Icon(

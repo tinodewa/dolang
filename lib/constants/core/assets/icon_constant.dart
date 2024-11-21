@@ -26,6 +26,4 @@ class IconConstant {
   static const String iconsVoucher = 'assets/icons/icons_voucher.png';
   static const String iconsPayment = 'assets/icons/icons_payment.png';
   static const String iconsBasket = 'assets/icons/icons_basket.png';
-  static const String iconsProfilePlaceholder =
-      'assets/icons/icons_profile_placeholder.png';
 }

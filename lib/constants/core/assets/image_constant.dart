@@ -6,4 +6,6 @@ class ImageConstant {
   static const String flagInd = 'assets/images/flag_ind.png';
   static const String flagEn = 'assets/images/flag_en.png';
   static const String bromoView = 'assets/images/bromo_view.jpg';
+  static const String iconsProfilePlaceholder =
+      'assets/images/icons_profile_placeholder.png';
 }

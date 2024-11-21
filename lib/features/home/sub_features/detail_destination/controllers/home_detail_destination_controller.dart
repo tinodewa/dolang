@@ -1,7 +1,7 @@
-import 'package:dolang/features/bookmark/controllers/bookmark_controller.dart';
 import 'package:dolang/features/home/models/bookmark_model.dart';
 import 'package:dolang/features/home/models/destination_model.dart';
 import 'package:dolang/features/home/sub_features/detail_destination/repositories/detail_destination_repository.dart';
+import 'package:dolang/features/profile/sub_features/bookmark/controllers/profile_bookmark_controller.dart';
 import 'package:dolang/features/sign_in/models/users_model.dart';
 import 'package:dolang/shared/controllers/global_controller.dart';
 import 'package:dolang/shared/styles/color_style.dart';
