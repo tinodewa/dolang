@@ -9,11 +9,11 @@ class TextFormFieldCustoms extends StatelessWidget {
     required this.controller,
     required this.keyboardType,
     this.initialValue,
-    required this.label,
+    this.label,
     required this.hint,
     this.isPassword = false,
     this.isRequired = false,
-    this.requiredText = "Input type tidak boleh kosong",
+    this.requiredText = "Input tidak boleh kosong",
     this.maxLength,
     this.suffixIcon,
   });
@@ -21,7 +21,7 @@ class TextFormFieldCustoms extends StatelessWidget {
   final TextEditingController controller;
   final TextInputType keyboardType;
   final String? initialValue;
-  final String label;
+  final String? label;
   final String hint;
   final bool isPassword;
   final bool isRequired;
@@ -35,13 +35,6 @@ class TextFormFieldCustoms extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          label,
-          style: GoogleTextStyle.fw400.copyWith(
-            fontSize: 14.sp,
-            color: ColorStyle.blackDark,
-          ),
-        ),
         TextFormField(
           keyboardType: keyboardType,
           obscureText: isPassword,
@@ -55,24 +48,42 @@ class TextFormFieldCustoms extends StatelessWidget {
               color: ColorStyle.greyDark,
             ),
             counterText: "",
-            contentPadding: EdgeInsets.only(top: 10.h, bottom: 0.0),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 15.w,
+              vertical: 10.h,
+            ),
             suffixIcon: SizedBox.shrink(child: suffixIcon),
-            border: const UnderlineInputBorder(
+            border: const OutlineInputBorder(
               borderSide: BorderSide(
                 width: 1,
                 color: ColorStyle.greyDark,
               ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  15.0,
+                ),
+              ),
             ),
-            enabledBorder: const UnderlineInputBorder(
+            enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(
                 width: 1,
                 color: ColorStyle.greyDark,
               ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  15.0,
+                ),
+              ),
             ),
-            focusedBorder: const UnderlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(
                 width: 1,
                 color: ColorStyle.primary,
+              ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  15.0,
+                ),
               ),
             ),
           ),
@@ -89,8 +100,8 @@ class TextFormFieldCustoms extends StatelessWidget {
             return null;
           },
           style: GoogleTextStyle.fw400.copyWith(
-            fontSize: 14.sp,
-            color: ColorStyle.blackDark,
+            fontSize: 16.sp,
+            color: ColorStyle.blackMedium,
           ),
         )
       ],

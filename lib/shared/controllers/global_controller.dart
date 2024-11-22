@@ -1,6 +1,10 @@
 import 'dart:io';
 
+import 'package:dolang/configs/routes/route.dart';
 import 'package:dolang/constants/core/api_constant.dart';
+import 'package:dolang/utils/services/local_storage_service.dart';
+import 'package:dolang/utils/services/location_services.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
@@ -15,92 +19,98 @@ class GlobalController extends GetxController {
   var isStaging = false.obs;
 
   /// Location
-  RxString statusLocation = RxString('loading');
+  RxString statusLocation = RxString('-');
   RxString messageLocation = RxString('');
-  RxnString address = RxnString();
+  Rxn<Position> position = Rxn<Position>();
+  RxnString addressFull = RxnString();
+  RxnString addressShort = RxnString();
 
   @override
   void onInit() {
     super.onInit();
 
     /// Check Connection
-    // checkConnection();
+    checkConnection();
+
+    /// Check Auth
+    checkAuth();
   }
 
   @override
   void onReady() {
     super.onReady();
 
-    // getLocation();
-    // LocationServices.streamService.listen((status) => getLocation());
+    getLocation();
+    LocationServices.streamService.listen((status) => getLocation());
   }
 
-  // Future<void> checkAuth() async {
-  //   final isLogin = await LocalStorageService.getAuth();
-  //   if (isLogin == null) {
-  //     await LocalStorageService.deleteAuth();
-  //     Get.offAllNamed(Routes.signInRoute);
-  //   } else {
-  //     if (isLogin != false) {
-  //       Get.offAllNamed(Routes.dashboardRoute);
-  //     } else {
-  //       Get.offAllNamed(Routes.signInRoute);
-  //     }
-  //   }
-  // }
+  Future<void> checkAuth() async {
+    final isLogin = await LocalStorageService.getAuth();
+    if (isLogin == null) {
+      await LocalStorageService.deleteAuth();
+      Get.offAllNamed(Routes.signInRoute);
+    } else {
+      if (isLogin != false) {
+        Get.offAllNamed(Routes.dashboardRoute);
+      } else {
+        Get.offAllNamed(Routes.signInRoute);
+      }
+    }
+  }
 
-  // /// Check Connection Setting
-  // Future<void> checkConnection() async {
-  //   try {
-  //     final result = await InternetAddress.lookup('www.google.com');
-  //     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-  //       isConnect.value = true;
-  //     }
-  //   } on SocketException catch (exception, stackTrace) {
-  //     isConnect.value = false;
-  //     await Sentry.captureException(
-  //       exception,
-  //       stackTrace: stackTrace,
-  //     );
+  /// Check Connection Setting
+  Future<void> checkConnection() async {
+    try {
+      final result = await InternetAddress.lookup('www.google.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        isConnect.value = true;
+      }
+    } on SocketException catch (exception, stackTrace) {
+      isConnect.value = false;
+      await Sentry.captureException(
+        exception,
+        stackTrace: stackTrace,
+      );
+      Get.snackbar(
+        'Error',
+        'No internet connection',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+        colorText: Get.theme.snackBarTheme.actionTextColor,
+      );
+    }
+  }
 
-  //     Get.offAllNamed(Routes.noConnectionRoute);
-  //   }
-  // }
+  Future<void> getLocation() async {
+    try {
+      statusLocation.value = 'loading';
+      final locationResult = await LocationServices.getCurrentPosition();
 
-  // Future<void> getLocation() async {
-  //   if (Get.isDialogOpen == false) {
-  //     Get.dialog(const NoLocationScreen(), barrierDismissible: false);
-  //   }
+      if (locationResult.success) {
+        position.value = locationResult.position;
+        addressFull.value = locationResult.addressFull;
+        addressShort.value = locationResult.addressShort;
+        statusLocation.value = 'success';
+      } else {
+        Get.snackbar(
+          'Error',
+          locationResult.message!,
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+          colorText: Get.theme.snackBarTheme.actionTextColor,
+        );
+        statusLocation.value = 'error';
+        messageLocation.value = locationResult.message!;
+      }
+    } catch (exception, stackTrace) {
+      /// Jika terjadi error, tampilkan pesan error
+      statusLocation.value = 'error';
+      messageLocation.value = 'Server error: ${exception.toString()}';
 
-  //   try {
-  //     /// Mendapatkan lokasi saat ini
-  //     statusLocation.value = 'loading';
-  //     final locationResult = await LocationServices.getCurrentPosition();
-
-  //     if (locationResult.success) {
-  //       /// Jika jarak lokasi cukup dekat, dapatkan informasi alamat
-  //       position.value = locationResult.position;
-  //       address.value = locationResult.address;
-  //       statusLocation.value = 'success';
-
-  //       await Future.delayed(
-  //         const Duration(seconds: 1),
-  //         checkAuth,
-  //       );
-  //     } else {
-  //       /// Jika jarak lokasi tidak cukup dekat, tampilkan pesan
-  //       statusLocation.value = 'error';
-  //       messageLocation.value = locationResult.message!;
-  //     }
-  //   } catch (exception, stackTrace) {
-  //     /// Jika terjadi error, tampilkan pesan error
-  //     statusLocation.value = 'error';
-  //     messageLocation.value = 'Server error: ${exception.toString()}';
-
-  //     await Sentry.captureException(
-  //       exception,
-  //       stackTrace: stackTrace,
-  //     );
-  //   }
-  // }
+      await Sentry.captureException(
+        exception,
+        stackTrace: stackTrace,
+      );
+    }
+  }
 }

@@ -24,12 +24,12 @@ class ButtonSocialMediaLoginComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 44.0,
+      height: 48.0,
       child: TextButton(
         onPressed: () {
           if (buttonText == 'Google') {
             try {
-              // SignInController.to.signInWithGoogle(context);
+              SignInController.to.signInWithGoogle(context);
             } catch (exception, stackTrace) {
               Sentry.captureException(
                 exception,
@@ -53,9 +53,11 @@ class ButtonSocialMediaLoginComponent extends StatelessWidget {
           minimumSize: const Size(double.infinity, 50),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),
+            side: const BorderSide(
+              color: ColorStyle.greyDark50,
+              width: 1.5,
+            ),
           ),
-          shadowColor: ColorStyle.blackDark,
-          elevation: 3,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -71,7 +73,7 @@ class ButtonSocialMediaLoginComponent extends StatelessWidget {
               width: 10,
             ),
             Text(
-              'Sign in using ',
+              'Sign up with ',
               style: GoogleTextStyle.fw400.copyWith(
                 fontSize: 14.0,
                 color: textColor,

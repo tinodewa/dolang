@@ -7,33 +7,33 @@ import 'package:get/get.dart';
 // localization class
 class Localization extends Translations {
 // default locale constant
-  static const defaultLocale = Locale('en', 'US');
+  static const fallbackLocale = Locale('en', 'US');
 
 // fallback locale constant
-  static const fallbackLocale = Locale('id', 'ID');
+  static const defaultLocale = Locale('id', 'ID');
 
 // supported languages constant
   static const langs = [
-    'English',
     'Indonesia',
+    'English',
   ];
 
   // flags asset image list constant
   static const flags = [
-    ImageConstant.flagEn,
     ImageConstant.flagInd,
+    ImageConstant.flagEn,
   ];
 
   // locale list constant
   static const locales = [
-    Locale('en', 'US'),
     Locale('id', 'ID'),
+    Locale('en', 'US'),
   ];
 
   @override
   Map<String, Map<String, String>> get keys => {
-        'en_US': translationsEnUs,
         'id_ID': translationsIDID,
+        'en_US': translationsEnUs,
       };
 
   // change locale

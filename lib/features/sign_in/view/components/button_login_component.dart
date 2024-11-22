@@ -20,7 +20,7 @@ class ButtonLoginComponent extends StatelessWidget {
       child: TextButton(
         onPressed: () {
           try {
-            // SignInController.to.validateForm(context);
+            SignInController.to.validateForm(context);
           } catch (exception, stackTrace) {
             Sentry.captureException(
               exception,
@@ -29,23 +29,23 @@ class ButtonLoginComponent extends StatelessWidget {
           }
         },
         style: TextButton.styleFrom(
-          backgroundColor: ColorStyle.primary,
+          backgroundColor: ColorStyle.primaryLight,
           minimumSize: const Size(double.infinity, 50),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),
             side: const BorderSide(
-              color: ColorStyle.primaryDark,
+              color: ColorStyle.primaryLight,
               width: 1.5,
             ),
           ),
-          shadowColor: ColorStyle.primaryLight,
+          shadowColor: ColorStyle.primary,
           elevation: 3,
         ),
         child: Text(
           buttonText,
           style: GoogleTextStyle.fw700.copyWith(
             fontSize: 14.0,
-            color: ColorStyle.white,
+            color: ColorStyle.blackMedium,
           ),
         ),
       ),
