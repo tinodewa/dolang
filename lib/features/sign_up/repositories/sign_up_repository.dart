@@ -62,7 +62,7 @@ class SignUpRepository {
         },
       );
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         return UsersModel.fromJson(response.data);
       } else {
         return null;

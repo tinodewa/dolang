@@ -56,7 +56,7 @@ class SignInController extends GetxController {
 
     if (isValid && GlobalController.to.isConnect.value == true) {
       EasyLoading.show(
-        status: 'Being processed...',
+        status: 'Tunggu sebentar...',
         maskType: EasyLoadingMaskType.black,
         dismissOnTap: false,
       );
@@ -74,9 +74,9 @@ class SignInController extends GetxController {
           EasyLoading.dismiss();
           PanaraInfoDialog.show(
             context,
-            title: 'Warning',
-            message: 'Wrong Email & Password',
-            buttonText: 'Confirm',
+            title: 'Perhatian!',
+            message: 'Email dan password salah.',
+            buttonText: 'Ok',
             onTapDismiss: () {
               Get.back();
             },
@@ -88,9 +88,9 @@ class SignInController extends GetxController {
         EasyLoading.dismiss();
         PanaraInfoDialog.show(
           context,
-          title: 'Warning',
-          message: 'Unexpected error, try again later!',
-          buttonText: 'Confirm',
+          title: 'Perhatian!',
+          message: 'Error, coba lagi nanti.',
+          buttonText: 'Ok',
           onTapDismiss: () {
             Get.back();
           },
@@ -102,8 +102,6 @@ class SignInController extends GetxController {
           stackTrace: stackTrace,
         );
       }
-    } else if (GlobalController.to.isConnect.value == false) {
-      Get.toNamed(Routes.noConnectionRoute);
     }
   }
 
@@ -145,8 +143,8 @@ class SignInController extends GetxController {
         EasyLoading.dismiss();
         PanaraInfoDialog.show(
           context,
-          title: 'Warning',
-          message: 'Failed!',
+          title: 'Perhatian!',
+          message: 'Gagal, coba lagi nanti.',
           buttonText: 'Ok',
           onTapDismiss: () {
             Get.back();
@@ -159,8 +157,8 @@ class SignInController extends GetxController {
       EasyLoading.dismiss();
       PanaraInfoDialog.show(
         context,
-        title: 'Warning',
-        message: 'Failed!',
+        title: 'Perhatian!',
+        message: 'Gagal, coba lagi nanti.',
         buttonText: 'Ok',
         onTapDismiss: () {
           Get.back();

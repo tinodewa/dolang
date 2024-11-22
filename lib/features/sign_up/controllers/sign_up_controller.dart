@@ -1,4 +1,3 @@
-import 'package:dolang/configs/routes/route.dart';
 import 'package:dolang/features/sign_in/models/users_model.dart';
 import 'package:dolang/features/sign_up/repositories/sign_up_repository.dart';
 import 'package:dolang/shared/controllers/global_controller.dart';
@@ -77,7 +76,7 @@ class SignUpController extends GetxController {
       if (isPasswordMatch) {
         if (isConfirmationApproved.value) {
           EasyLoading.show(
-            status: 'Being processed...',
+            status: 'Tunggu sebentar...',
             maskType: EasyLoadingMaskType.black,
             dismissOnTap: false,
           );
@@ -91,9 +90,9 @@ class SignUpController extends GetxController {
               EasyLoading.dismiss();
               PanaraInfoDialog.show(
                 context,
-                title: 'Warning',
-                message: 'Email is already registered!',
-                buttonText: 'Confirm',
+                title: 'Perhatian!',
+                message: 'Email sudah terdaftar.',
+                buttonText: 'Ok',
                 onTapDismiss: () {
                   Get.back();
                 },
@@ -116,9 +115,9 @@ class SignUpController extends GetxController {
             EasyLoading.dismiss();
             PanaraInfoDialog.show(
               context,
-              title: 'Warning',
-              message: 'Unexpected error, try again later!',
-              buttonText: 'Confirm',
+              title: 'Perhatian!',
+              message: 'Error, coba lagi nanti.',
+              buttonText: 'Ok',
               onTapDismiss: () {
                 Get.back();
               },
@@ -130,13 +129,25 @@ class SignUpController extends GetxController {
               stackTrace: stackTrace,
             );
           }
+        } else {
+          PanaraInfoDialog.show(
+            context,
+            title: 'Perhatian!',
+            message: 'Mohon konfirmasi privasi pengguna dan kebijakan.',
+            buttonText: 'Ok',
+            onTapDismiss: () {
+              Get.back();
+            },
+            panaraDialogType: PanaraDialogType.warning,
+            barrierDismissible: false,
+          );
         }
       } else {
         PanaraInfoDialog.show(
           context,
-          title: 'Warning',
-          message: 'Password dan Konfirmasi Password tidak sama!',
-          buttonText: 'Confirm',
+          title: 'Perhatian!',
+          message: 'Password dan Konfirmasi Password tidak sama.',
+          buttonText: 'Ok',
           onTapDismiss: () {
             Get.back();
           },
@@ -144,8 +155,6 @@ class SignUpController extends GetxController {
           barrierDismissible: false,
         );
       }
-    } else if (GlobalController.to.isConnect.value == false) {
-      Get.toNamed(Routes.noConnectionRoute);
     }
   }
 
