@@ -1,4 +1,6 @@
 import 'package:dolang/configs/routes/route.dart';
+import 'package:dolang/features/booking/bindings/booking_binding.dart';
+import 'package:dolang/features/booking/view/ui/booking_screen.dart';
 import 'package:dolang/features/dashboard/bindings/dashboard_binding.dart';
 import 'package:dolang/features/dashboard/view/ui/dashboard_screen.dart';
 import 'package:dolang/features/home/bindings/home_binding.dart';
@@ -45,6 +47,11 @@ abstract class Pages {
       name: Routes.homeDetailDestinationRoute,
       page: () => DetailDestinationScreen(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.bookingRoute,
+      page: () => BookingScreen(),
+      binding: BookingBinding(),
     ),
     GetPage(
       name: Routes.profileRoute,

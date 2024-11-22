@@ -64,7 +64,7 @@ class SignUpController extends GetxController {
     }
   }
 
-  // Create a function to sign in with email and password via API
+  // Create a function to sign up with email and password via API
   void validateForm(context) async {
     await GlobalController.to.checkConnection();
 
