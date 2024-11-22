@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DashedSeparator extends StatelessWidget {
-  const DashedSeparator(
+class DashedSeparatorComponent extends StatelessWidget {
+  const DashedSeparatorComponent(
       {super.key, this.height = 1, this.color = Colors.black});
   final double height;
   final Color color;

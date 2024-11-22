@@ -1,5 +1,5 @@
 import 'package:dolang/features/booking/controllers/booking_controller.dart';
-import 'package:dolang/features/booking/view/components/tile_option_component.dart';
+import 'package:dolang/features/booking/view/components/tile_confirmation_component.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
@@ -31,85 +31,45 @@ class ConfirmationBookingTab extends StatelessWidget {
 
             // Name
             SizedBox(height: 5.h),
-            TileOptionComponent(
+            TileConfirmationComponent(
               title: 'Nama',
               message: BookingController.to.fullNameValue.value,
-              titleStyle: GoogleTextStyle.fw400.copyWith(
-                fontSize: 16.sp,
-                color: ColorStyle.blackMedium,
-              ),
-              messageStyle: GoogleTextStyle.fw600.copyWith(
-                fontSize: 16.sp,
-                color: ColorStyle.blackMedium,
-              ),
             ),
             SizedBox(height: 5.h),
             Divider(height: 0.5.h, color: ColorStyle.greyDark50),
 
             // Phone Number
             SizedBox(height: 5.h),
-            TileOptionComponent(
+            TileConfirmationComponent(
               title: 'Nomor Telpon',
               message: BookingController.to.phoneNumberValue.value,
-              titleStyle: GoogleTextStyle.fw400.copyWith(
-                fontSize: 16.sp,
-                color: ColorStyle.blackMedium,
-              ),
-              messageStyle: GoogleTextStyle.fw600.copyWith(
-                fontSize: 16.sp,
-                color: ColorStyle.blackMedium,
-              ),
             ),
             SizedBox(height: 5.h),
             Divider(height: 0.5.h, color: ColorStyle.greyDark50),
 
             // Date
             SizedBox(height: 5.h),
-            TileOptionComponent(
+            TileConfirmationComponent(
               title: 'Tanggal',
               message: BookingController.to.date.value,
-              titleStyle: GoogleTextStyle.fw400.copyWith(
-                fontSize: 16.sp,
-                color: ColorStyle.blackMedium,
-              ),
-              messageStyle: GoogleTextStyle.fw600.copyWith(
-                fontSize: 16.sp,
-                color: ColorStyle.blackMedium,
-              ),
             ),
             SizedBox(height: 5.h),
             Divider(height: 0.5.h, color: ColorStyle.greyDark50),
 
             // Time
             SizedBox(height: 5.h),
-            TileOptionComponent(
+            TileConfirmationComponent(
               title: 'Waktu',
               message: BookingController.to.time.value.format(context),
-              titleStyle: GoogleTextStyle.fw400.copyWith(
-                fontSize: 16.sp,
-                color: ColorStyle.blackMedium,
-              ),
-              messageStyle: GoogleTextStyle.fw600.copyWith(
-                fontSize: 16.sp,
-                color: ColorStyle.blackMedium,
-              ),
             ),
             SizedBox(height: 5.h),
             Divider(height: 0.5.h, color: ColorStyle.greyDark50),
 
             // Number of Person
             SizedBox(height: 5.h),
-            TileOptionComponent(
+            TileConfirmationComponent(
               title: 'Jumlah Orang',
               message: BookingController.to.personTotalValue.value,
-              titleStyle: GoogleTextStyle.fw400.copyWith(
-                fontSize: 16.sp,
-                color: ColorStyle.blackMedium,
-              ),
-              messageStyle: GoogleTextStyle.fw600.copyWith(
-                fontSize: 16.sp,
-                color: ColorStyle.blackMedium,
-              ),
             ),
             SizedBox(height: 5.h),
           ],

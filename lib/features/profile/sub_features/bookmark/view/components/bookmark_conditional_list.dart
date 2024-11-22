@@ -32,11 +32,12 @@ class BookmarkConditionalList extends StatelessWidget {
                 padding: EdgeInsets.all(10.r),
                 itemBuilder: (context, index) {
                   return ItemCardComponent(
-                    destination: BookmarkController.to.destinationList[index],
+                    destination:
+                        BookmarkController.to.finalDestinationList[index],
                   );
                 },
                 separatorBuilder: (context, index) => 16.verticalSpace,
-                itemCount: BookmarkController.to.bookmarkList.length,
+                itemCount: BookmarkController.to.finalDestinationList.length,
                 shrinkWrap: true,
               ),
         },

@@ -1,10 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dolang/constants/core/assets/icon_constant.dart';
 import 'package:dolang/constants/core/assets/image_constant.dart';
-import 'package:dolang/features/profile/controllers/profile_controller.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 

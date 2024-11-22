@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:dolang/configs/routes/route.dart';
 import 'package:dolang/constants/core/assets/image_constant.dart';
 import 'package:dolang/features/sign_in/constants/sign_in_assets_constant.dart';
 import 'package:dolang/features/sign_in/view/components/button_login_component.dart';
 import 'package:dolang/features/sign_in/view/components/button_social_media_login_component.dart';
 import 'package:dolang/features/sign_in/view/components/divider_login_method_component.dart';
 import 'package:dolang/features/sign_in/view/components/form_sign_in_component.dart';
+import 'package:dolang/features/sign_in/view/components/navigate_sign_up_component.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -99,34 +99,7 @@ class SignInScreen extends StatelessWidget {
                     ),
                   },
                   SizedBox(height: 20.h),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Belum punya akun?'.tr,
-                        style: GoogleTextStyle.fw600.copyWith(
-                          fontSize: 14.sp,
-                          color: ColorStyle.blackMedium,
-                        ),
-                        textAlign: TextAlign.end,
-                      ),
-                      SizedBox(width: 4.h),
-                      GestureDetector(
-                        onTap: () {
-                          Get.toNamed(Routes.signUpRoute);
-                        },
-                        child: Text(
-                          'Daftar'.tr,
-                          style: GoogleTextStyle.fw600.copyWith(
-                            fontSize: 14.sp,
-                            color: ColorStyle.primaryDark,
-                          ),
-                          textAlign: TextAlign.end,
-                        ),
-                      ),
-                    ],
-                  ),
+                  const NavigateSignUpComponent(),
                   SizedBox(height: 40.h),
                 ],
               ),
