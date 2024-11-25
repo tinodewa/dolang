@@ -19,6 +19,7 @@ class GlobalController extends GetxController {
   var isStaging = false.obs;
 
   /// Location
+  LocationServices locationServices = LocationServices();
   RxString statusLocation = RxString('-');
   RxString messageLocation = RxString('');
   Rxn<Position> position = Rxn<Position>();
@@ -84,7 +85,7 @@ class GlobalController extends GetxController {
   Future<void> getLocation() async {
     try {
       statusLocation.value = 'loading';
-      final locationResult = await LocationServices.getCurrentPosition();
+      final locationResult = await locationServices.getCurrentPosition();
 
       if (locationResult.success) {
         position.value = locationResult.position;

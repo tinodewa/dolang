@@ -1,3 +1,4 @@
+import 'package:dolang/features/home/controllers/home_controller.dart';
 import 'package:dolang/features/home/models/destination_model.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
@@ -112,7 +113,7 @@ class ItemCardInformationComponent extends StatelessWidget {
                     ),
                     SizedBox(width: 2.w),
                     Text(
-                      '14km',
+                      '${destination.distance} km',
                       style: GoogleTextStyle.fw400.copyWith(
                         fontSize: 11.sp,
                         color: ColorStyle.greyDark,

@@ -7,11 +7,23 @@ class LocationServices {
   /// Memastikan class ini tidak bisa diinstansiasi
   LocationServices._();
 
+  /// Singleton instance
+  static final LocationServices _repository = LocationServices._();
+
+  /// Factory method to get the singleton instance
+  factory LocationServices() {
+    return _repository;
+  }
+
   static Stream<ServiceStatus> streamService =
       Geolocator.getServiceStatusStream();
 
+  late Position position;
+
+  late bool? locationEnabled = false;
+
   /// Mendapatkan informasi lokasi
-  static Future<LocationResult> getCurrentPosition() async {
+  Future<LocationResult> getCurrentPosition() async {
     /// Apakah layanan lokasi aktif?
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
@@ -41,12 +53,14 @@ class LocationServices {
     }
 
     /// Jika izin lokasi diberikan, ambil lokasi
-    late Position position;
+
     try {
       position = await Geolocator.getCurrentPosition();
+      locationEnabled = true;
     } catch (exception, stackTrace) {
       /// Jika gagal mendapatkan lokasi, kirim pesan error
       Sentry.captureException(exception, stackTrace: stackTrace);
+      locationEnabled = false;
       return LocationResult.error(message: 'Location service not enabled'.tr);
     }
 
@@ -76,6 +90,17 @@ class LocationServices {
         ].where((e) => e != null).join(', '),
       );
     }
+  }
+
+  /// Get distance between two points
+  double getDistanceBetween(
+      {required double endLatitude, required double endLongitude}) {
+    return Geolocator.distanceBetween(
+      position.latitude,
+      position.longitude,
+      endLatitude,
+      endLongitude,
+    );
   }
 }
 

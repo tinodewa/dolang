@@ -11,20 +11,23 @@ class DestinationModel {
   String? latitude;
   String? longitude;
   String? destinationId;
+  String? distance;
 
-  DestinationModel(
-      {this.name,
-      this.description,
-      this.location,
-      this.mapLocation,
-      this.category,
-      this.createdAt,
-      this.updatedAt,
-      this.pricePerPerson,
-      this.photo,
-      this.latitude,
-      this.longitude,
-      this.destinationId});
+  DestinationModel({
+    this.name,
+    this.description,
+    this.location,
+    this.mapLocation,
+    this.category,
+    this.createdAt,
+    this.updatedAt,
+    this.pricePerPerson,
+    this.photo,
+    this.latitude,
+    this.longitude,
+    this.destinationId,
+    this.distance,
+  });
 
   DestinationModel.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -39,6 +42,7 @@ class DestinationModel {
     latitude = json['latitude'];
     longitude = json['longitude'];
     destinationId = json['destination_id'];
+    distance = json['distance'];
   }
 
   Map<String, dynamic> toJson() {
@@ -55,6 +59,7 @@ class DestinationModel {
     data['latitude'] = latitude;
     data['longitude'] = longitude;
     data['destination_id'] = destinationId;
+    data['distance'] = distance;
     return data;
   }
 }
