@@ -12,13 +12,17 @@ class ImageDestinationComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {},
-      borderRadius: BorderRadius.circular(15.r),
+      borderRadius: BorderRadius.vertical(
+        bottom: Radius.circular(15.r),
+      ),
       child: Container(
         width: 1.sw,
         height: 350.h,
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.circular(15.r),
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(15.r),
+          ),
           image: DecorationImage(
             image: CachedNetworkImageProvider(
               HomeDetailDestinationController.to.destination?.photo ??

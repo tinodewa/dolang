@@ -1,3 +1,4 @@
+import 'package:dolang/features/book_list/view/ui/book_list_screen.dart';
 import 'package:dolang/features/dashboard/constants/dashboard_assets_constant.dart';
 import 'package:dolang/features/dashboard/view/components/bottom_navbar_dashboard_component.dart';
 import 'package:dolang/features/home/view/ui/home_screen.dart';
@@ -12,7 +13,7 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RxInt currentPageIndex = 0.obs;
+    RxInt currentPageIndex = 1.obs;
     return SafeArea(
       child: Obx(
         () => Scaffold(
@@ -21,17 +22,7 @@ class DashboardScreen extends StatelessWidget {
             HomeScreen(),
 
             /// Book page
-            const Card(
-              shadowColor: Colors.transparent,
-              margin: EdgeInsets.all(8.0),
-              child: SizedBox.expand(
-                child: Center(
-                  child: Text(
-                    'Book page',
-                  ),
-                ),
-              ),
-            ),
+            BookListScreen(),
 
             /// Profile page
             ProfileScreen(),

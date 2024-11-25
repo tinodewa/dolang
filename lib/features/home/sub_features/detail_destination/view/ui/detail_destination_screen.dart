@@ -9,6 +9,7 @@ import 'package:dolang/features/home/sub_features/detail_destination/view/compon
 import 'package:dolang/features/home/sub_features/detail_destination/view/components/sub_info_destination_component.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/widgets/error_screen.dart';
+import 'package:dolang/utils/enums/data_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,10 +27,10 @@ class DetailDestinationScreen extends StatelessWidget {
         valueBuilder: (context) =>
             HomeDetailDestinationController.to.detailDestinationState.value,
         caseBuilders: {
-          'error': (context) => const ErrorScreen(
+          DataStatus.error: (context) => const ErrorScreen(
                 message: 'Error loading detail destination!',
               ),
-          'success': (context) => Scaffold(
+          DataStatus.success: (context) => Scaffold(
                 extendBody: true,
                 backgroundColor: ColorStyle.white,
                 extendBodyBehindAppBar: true,

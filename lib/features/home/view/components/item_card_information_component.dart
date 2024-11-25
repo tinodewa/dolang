@@ -1,4 +1,3 @@
-import 'package:dolang/features/home/controllers/home_controller.dart';
 import 'package:dolang/features/home/models/destination_model.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';

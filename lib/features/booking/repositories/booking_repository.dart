@@ -25,8 +25,8 @@ class BookingRepository {
       final response = await DioService.dioCall().post(
         '${apiConstant.user}/$userId/${apiConstant.booking}',
         data: {
-          "destinaton_id": userId,
-          "user_id": destinationId,
+          "destinaton_id": destinationId,
+          "user_id": userId,
           "booker_name": bookingModel.bookerName,
           "booker_phone_number": bookingModel.bookerPhoneNumber,
           "booking_date": bookingModel.bookingDate,

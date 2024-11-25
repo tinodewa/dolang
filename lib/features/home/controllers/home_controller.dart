@@ -1,6 +1,7 @@
 import 'package:dolang/features/home/models/destination_model.dart';
 import 'package:dolang/features/home/repositories/home_repository.dart';
 import 'package:dolang/shared/controllers/global_controller.dart';
+import 'package:dolang/utils/enums/data_status.dart';
 import 'package:dolang/utils/services/location_services.dart';
 import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -8,7 +9,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 class HomeController extends GetxController {
   static HomeController get to => Get.find();
   RxList<DestinationModel> destinationList = <DestinationModel>[].obs;
-  RxString destinationState = 'loading'.obs;
+  Rx<DataStatus> destinationState = DataStatus.loading.obs;
 
   /// Repository
   HomeRepository repository = HomeRepository();
@@ -24,17 +25,17 @@ class HomeController extends GetxController {
   }
 
   Future<bool> getDestination() async {
-    destinationState('loading');
+    destinationState(DataStatus.loading);
 
     try {
       List<DestinationModel>? list = await repository.getDestination();
       if (list != null) {
         destinationList.assignAll(list);
         getDistance();
-        destinationState('success');
+        destinationState(DataStatus.success);
         return true;
       } else {
-        destinationState('error');
+        destinationState(DataStatus.error);
         return false;
       }
     } catch (exception, stackTrace) {
@@ -42,7 +43,7 @@ class HomeController extends GetxController {
         exception,
         stackTrace: stackTrace,
       );
-      destinationState('error');
+      destinationState(DataStatus.error);
       return false;
     }
   }

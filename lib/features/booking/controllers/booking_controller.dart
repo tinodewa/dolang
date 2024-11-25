@@ -33,7 +33,7 @@ class BookingController extends GetxController {
   var phoneNumberController = TextEditingController();
   RxString phoneNumberValue = ''.obs;
   var personTotalController = TextEditingController();
-  RxString personTotalValue = ''.obs;
+  RxString personTotalValue = '1'.obs;
   var noteController = TextEditingController();
   RxString noteValue = ''.obs;
 
@@ -49,6 +49,7 @@ class BookingController extends GetxController {
         const Duration(days: 1),
       ),
     );
+    personTotalController.text = personTotalValue.value;
     userModel.value = await LocalStorageService.getLoggedUserData();
   }
 
@@ -112,7 +113,7 @@ class BookingController extends GetxController {
         onTapCancel: () {
           Get.back();
         },
-        panaraDialogType: PanaraDialogType.normal,
+        panaraDialogType: PanaraDialogType.warning,
       );
     } catch (exception, stackTrace) {
       Sentry.captureException(
@@ -134,6 +135,7 @@ class BookingController extends GetxController {
         );
         if (userModel.value?.userId != null) {
           BookingModel bookingModel = BookingModel(
+            paymentStatus: '1',
             bookerName: fullNameValue.value,
             bookerPhoneNumber: phoneNumberValue.value,
             bookingDate: date.value,
@@ -171,6 +173,22 @@ class BookingController extends GetxController {
           stackTrace: stackTrace,
         );
       }
+    }
+  }
+
+  void addPerson() {
+    int personTotal = int.parse(personTotalValue.value);
+    personTotal++;
+    personTotalController.text = personTotal.toString();
+    personTotalValue.value = personTotal.toString();
+  }
+
+  void reducePerson() {
+    int personTotal = int.parse(personTotalValue.value);
+    if (personTotal > 1) {
+      personTotal--;
+      personTotalController.text = personTotal.toString();
+      personTotalValue.value = personTotal.toString();
     }
   }
 }

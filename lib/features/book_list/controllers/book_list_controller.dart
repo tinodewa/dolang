@@ -1,6 +1,6 @@
-import 'package:dolang/features/home/models/bookmark_model.dart';
+import 'package:dolang/features/book_list/models/book_model.dart';
+import 'package:dolang/features/book_list/repositories/book_list_repository.dart';
 import 'package:dolang/features/home/models/destination_model.dart';
-import 'package:dolang/features/profile/sub_features/bookmark/repositories/bookmark_repository.dart';
 import 'package:dolang/features/sign_in/models/users_model.dart';
 import 'package:dolang/shared/controllers/global_controller.dart';
 import 'package:dolang/utils/enums/data_status.dart';
@@ -8,55 +8,56 @@ import 'package:dolang/utils/services/local_storage_service.dart';
 import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
-class BookmarkController extends GetxController {
-  static BookmarkController get to => Get.find();
+class BookListController extends GetxController {
+  static BookListController get to => Get.find();
 
   Rx<UsersModel?> userModel = UsersModel().obs;
-  List<BookmarkModel> bookmarkList = <BookmarkModel>[].obs;
+  List<BookModel> bookList = <BookModel>[].obs;
   List<DestinationModel> destinationList = <DestinationModel>[].obs;
   List<DestinationModel> finalDestinationList = <DestinationModel>[].obs;
-  Rx<DataStatus> bookmarkDestinationState = DataStatus.loading.obs;
+
+  Rx<DataStatus> booksState = DataStatus.loading.obs;
 
   /// Repository
-  BookmarkRepository repository = BookmarkRepository();
+  BookListRepository repository = BookListRepository();
 
   @override
   void onInit() async {
     super.onInit();
     userModel.value = await LocalStorageService.getLoggedUserData();
-    getBookmarks();
+    getBooks();
   }
 
-  Future<void> getBookmarks() async {
-    bookmarkDestinationState(DataStatus.loading);
+  Future<void> getBooks() async {
+    booksState(DataStatus.loading);
     await GlobalController.to.checkConnection();
 
     if (GlobalController.to.isConnect.value == true) {
       try {
         if (userModel.value?.userId != null) {
-          List<BookmarkModel>? bookmarks = await repository.getBookmarks(
+          List<BookModel>? books = await repository.getBooks(
             userModel.value!.userId!,
           );
-          if (bookmarks != null) {
-            bookmarkList.assignAll(bookmarks);
+          if (books != null) {
+            bookList.assignAll(books);
             await getDestination();
             if (destinationList.isNotEmpty) {
               finalDestinationList = destinationList
-                  .where((destination) => bookmarkList.any(
+                  .where((destination) => bookList.any(
                         (bookmark) =>
-                            destination.destinationId == bookmark.destinationId,
+                            destination.destinationId == bookmark.destinatonId,
                       ))
                   .toList();
-              bookmarkDestinationState(DataStatus.success);
+              booksState(DataStatus.success);
             } else {
-              bookmarkDestinationState(DataStatus.error);
+              booksState(DataStatus.error);
             }
           } else {
-            bookmarkDestinationState(DataStatus.error);
+            booksState(DataStatus.error);
           }
         }
       } catch (exception, stackTrace) {
-        bookmarkDestinationState(DataStatus.error);
+        booksState(DataStatus.error);
         await Sentry.captureException(
           exception,
           stackTrace: stackTrace,

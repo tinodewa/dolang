@@ -27,17 +27,26 @@ class MainInfoDestinationComponent extends StatelessWidget {
         Row(
           children: [
             Text(
-              HomeDetailDestinationController.to.destination?.pricePerPerson ??
-                  '',
+              int.parse(HomeDetailDestinationController
+                          .to.destination!.pricePerPerson!
+                          .toString()) !=
+                      0
+                  ? 'Rp ${HomeDetailDestinationController.to.destination?.pricePerPerson}'
+                  : 'Gratis',
               style: GoogleTextStyle.fw500.copyWith(
-                fontSize: 18.sp,
+                fontSize: 15.sp,
                 color: ColorStyle.blackMedium,
               ),
             ),
             Text(
-              '/orang',
+              int.parse(HomeDetailDestinationController
+                          .to.destination!.pricePerPerson!
+                          .toString()) !=
+                      0
+                  ? '/orang'
+                  : '',
               style: GoogleTextStyle.fw400.copyWith(
-                fontSize: 15.sp,
+                fontSize: 13.sp,
                 color: ColorStyle.blackMedium,
               ),
             ),

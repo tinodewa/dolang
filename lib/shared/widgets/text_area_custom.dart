@@ -3,15 +3,14 @@ import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TextFormFieldCustoms extends StatelessWidget {
-  const TextFormFieldCustoms({
+class TextAreaCustoms extends StatelessWidget {
+  const TextAreaCustoms({
     super.key,
     required this.controller,
     required this.keyboardType,
     this.initialValue,
     this.label,
     required this.hint,
-    this.isPassword = false,
     this.isRequired = false,
     this.requiredText = "Input tidak boleh kosong",
     this.maxLength,
@@ -24,7 +23,6 @@ class TextFormFieldCustoms extends StatelessWidget {
   final String? initialValue;
   final String? label;
   final String hint;
-  final bool isPassword;
   final bool isRequired;
   final String requiredText;
   final int? maxLength;
@@ -39,7 +37,7 @@ class TextFormFieldCustoms extends StatelessWidget {
       children: [
         TextFormField(
           keyboardType: keyboardType,
-          obscureText: isPassword,
+          maxLines: maxLines,
           maxLength: maxLength,
           initialValue: initialValue,
           cursorColor: ColorStyle.blackMedium,

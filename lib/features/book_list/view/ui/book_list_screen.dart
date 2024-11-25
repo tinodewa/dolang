@@ -1,30 +1,41 @@
-import 'package:dolang/features/home/constants/home_assets_constant.dart';
-import 'package:dolang/features/home/controllers/home_controller.dart';
-import 'package:dolang/features/home/view/components/item_card_component.dart';
-import 'package:dolang/features/home/view/components/search_app_bar_component.dart';
-import 'package:dolang/shared/widgets/error_screen.dart';
+import 'package:dolang/features/book_list/constants/book_list_assets_constant.dart';
+import 'package:dolang/features/book_list/controllers/book_list_controller.dart';
+import 'package:dolang/features/book_list/view/components/book_card_component.dart';
 import 'package:dolang/shared/styles/color_style.dart';
+import 'package:dolang/shared/widgets/error_screen.dart';
 import 'package:dolang/utils/enums/data_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+class BookListScreen extends StatelessWidget {
+  BookListScreen({super.key});
 
-  final assetsConstant = HomeAssetsConstant();
+  final assetsConstant = BookListAssetsConstant();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const SearchAppBarComponent(),
+      appBar: AppBar(
+        title: Text(
+          'Book List',
+          style: TextStyle(
+            color: ColorStyle.blackMedium,
+            fontSize: 18.sp,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: ColorStyle.white,
+        elevation: 0,
+      ),
       backgroundColor: ColorStyle.white,
       body: RefreshIndicator(
-        onRefresh: () => HomeController.to.getDestination(),
+        onRefresh: () => BookListController.to.getBooks(),
         child: Obx(
           () => ConditionalSwitch.single(
             context: context,
-            valueBuilder: (context) => HomeController.to.destinationState.value,
+            valueBuilder: (context) => BookListController.to.booksState.value,
             caseBuilders: {
               DataStatus.loading: (context) => const Center(
                     child: CircularProgressIndicator(
@@ -37,12 +48,14 @@ class HomeScreen extends StatelessWidget {
               DataStatus.success: (context) => ListView.separated(
                     padding: EdgeInsets.all(10.r),
                     itemBuilder: (context, index) {
-                      return ItemCardComponent(
-                        destination: HomeController.to.destinationList[index],
+                      return BookCardComponent(
+                        book: BookListController.to.bookList[index],
+                        destination:
+                            BookListController.to.finalDestinationList[index],
                       );
                     },
                     separatorBuilder: (context, index) => 16.verticalSpace,
-                    itemCount: HomeController.to.destinationList.length,
+                    itemCount: BookListController.to.bookList.length,
                   ),
             },
           ),

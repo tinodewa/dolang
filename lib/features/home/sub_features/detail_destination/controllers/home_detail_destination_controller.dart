@@ -5,6 +5,7 @@ import 'package:dolang/features/profile/sub_features/bookmark/controllers/profil
 import 'package:dolang/features/sign_in/models/users_model.dart';
 import 'package:dolang/shared/controllers/global_controller.dart';
 import 'package:dolang/shared/styles/color_style.dart';
+import 'package:dolang/utils/enums/data_status.dart';
 import 'package:dolang/utils/services/local_storage_service.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -17,7 +18,7 @@ class HomeDetailDestinationController extends GetxController {
   DestinationModel? destination;
   RxBool isBookmark = false.obs;
   Rx<UsersModel?> userModel = UsersModel().obs;
-  RxString detailDestinationState = 'loading'.obs;
+  Rx<DataStatus> detailDestinationState = DataStatus.loading.obs;
   Rx<BookmarkModel?> bookmarkModel = BookmarkModel().obs;
 
   /// Repository
@@ -68,7 +69,7 @@ class HomeDetailDestinationController extends GetxController {
               if (bookmark.destinationId == destination!.destinationId) {
                 bookmarkModel.value = bookmark;
                 isBookmark.value = true;
-                detailDestinationState('success');
+                detailDestinationState(DataStatus.success);
                 EasyLoading.dismiss();
                 break;
               }
@@ -76,10 +77,10 @@ class HomeDetailDestinationController extends GetxController {
           }
         }
 
-        detailDestinationState('success');
+        detailDestinationState(DataStatus.success);
         EasyLoading.dismiss();
       } catch (exception, stackTrace) {
-        detailDestinationState('error');
+        detailDestinationState(DataStatus.error);
         EasyLoading.dismiss();
         await Sentry.captureException(
           exception,
