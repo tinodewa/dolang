@@ -46,7 +46,7 @@ class BookListScreen extends StatelessWidget {
                     message: 'Error loading destination!',
                   ),
               DataStatus.success: (context) => ListView.separated(
-                    padding: EdgeInsets.all(10.r),
+                    padding: EdgeInsets.all(20.r),
                     itemBuilder: (context, index) {
                       return BookCardComponent(
                         book: BookListController.to.bookList[index],

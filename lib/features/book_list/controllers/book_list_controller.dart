@@ -13,6 +13,7 @@ class BookListController extends GetxController {
 
   Rx<UsersModel?> userModel = UsersModel().obs;
   List<BookModel> bookList = <BookModel>[].obs;
+  List<BookModel> bookListPending = <BookModel>[].obs;
   List<DestinationModel> destinationList = <DestinationModel>[].obs;
   List<DestinationModel> finalDestinationList = <DestinationModel>[].obs;
 
@@ -34,12 +35,17 @@ class BookListController extends GetxController {
 
     if (GlobalController.to.isConnect.value == true) {
       try {
+        bookList.clear();
+        bookListPending.clear();
         if (userModel.value?.userId != null) {
           List<BookModel>? books = await repository.getBooks(
             userModel.value!.userId!,
           );
           if (books != null) {
             bookList.assignAll(books);
+            bookListPending.assignAll(
+              bookList.where((book) => book.paymentStatus == '1').toList(),
+            );
             await getDestination();
             if (destinationList.isNotEmpty) {
               finalDestinationList = destinationList

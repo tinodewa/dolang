@@ -1,5 +1,6 @@
 import 'package:dolang/configs/routes/route.dart';
 import 'package:dolang/features/book_list/bindings/book_list_binding.dart';
+import 'package:dolang/features/book_list/sub_features/detail_book/view/ui/detail_book_screen.dart';
 import 'package:dolang/features/book_list/view/ui/book_list_screen.dart';
 import 'package:dolang/features/booking/bindings/booking_binding.dart';
 import 'package:dolang/features/booking/view/ui/booking_screen.dart';
@@ -53,6 +54,11 @@ abstract class Pages {
     GetPage(
       name: Routes.bookListRoute,
       page: () => BookListScreen(),
+      binding: BookListBinding(),
+    ),
+    GetPage(
+      name: Routes.bookListDetailBookRoute,
+      page: () => DetailBookScreen(),
       binding: BookListBinding(),
     ),
     GetPage(

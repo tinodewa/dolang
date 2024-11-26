@@ -25,7 +25,7 @@ class BookStatusChipComponent extends StatelessWidget {
       status = 'Success';
     } else {
       color = ColorStyle.red;
-      status = 'Failed';
+      status = 'Canceled';
     }
 
     return Container(
@@ -39,7 +39,7 @@ class BookStatusChipComponent extends StatelessWidget {
           status,
           style: GoogleTextStyle.fw600.copyWith(
             fontSize: 12.sp,
-            color: ColorStyle.blackMedium,
+            color: ColorStyle.white,
           ),
         ),
       ),

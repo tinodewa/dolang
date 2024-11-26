@@ -1,11 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dolang/configs/routes/route.dart';
 import 'package:dolang/features/book_list/models/book_model.dart';
+import 'package:dolang/features/book_list/models/detail_book_arguments.dart';
 import 'package:dolang/features/book_list/view/components/book_status_chip_component.dart';
 import 'package:dolang/features/home/models/destination_model.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class BookCardComponent extends StatelessWidget {
   const BookCardComponent({
@@ -21,10 +24,13 @@ class BookCardComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Get.toNamed(
-        //   Routes.homeDetailDestinationRoute,
-        //   arguments: destination,
-        // );
+        Get.toNamed(
+          Routes.bookListDetailBookRoute,
+          arguments: DetailBookArguments(
+            book,
+            destination,
+          ),
+        );
       },
       borderRadius: BorderRadius.circular(15.r),
       child: Container(
@@ -75,8 +81,8 @@ class BookCardComponent extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          int.parse(destination.pricePerPerson.toString()) != 0
-                              ? 'Rp ${destination.pricePerPerson}'
+                          int.parse(book.totalPayment.toString()) != 0
+                              ? 'Rp ${book.totalPayment}'
                               : 'Gratis',
                           style: GoogleTextStyle.fw500.copyWith(
                             fontSize: 13.sp,

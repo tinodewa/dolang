@@ -13,4 +13,5 @@ static const String bookmarkRoute = '/bookmark';
 static const String profileBookmarkRoute = '/profile_bookmark';
 static const String bookingRoute = '/booking';
 static const String bookListRoute = '/book_list';
+static const String bookListDetailBookRoute = '/book_list_detail_book';
 }
