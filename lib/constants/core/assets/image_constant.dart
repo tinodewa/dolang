@@ -8,4 +8,5 @@ class ImageConstant {
   static const String bromoView = 'assets/images/bromo_view.jpg';
   static const String iconsProfilePlaceholder =
       'assets/images/icons_profile_placeholder.png';
+  static const String user = 'assets/images/user.png';
 }

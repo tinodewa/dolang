@@ -14,4 +14,6 @@ static const String profileBookmarkRoute = '/profile_bookmark';
 static const String bookingRoute = '/booking';
 static const String bookListRoute = '/book_list';
 static const String bookListDetailBookRoute = '/book_list_detail_book';
+static const String profilePrivacyPolicyRoute = '/profile_privacy_policy';
+static const String profilePersonalInformationRoute = '/profile_personal_information';
 }

@@ -10,6 +10,9 @@ import 'package:dolang/features/home/bindings/home_binding.dart';
 import 'package:dolang/features/home/sub_features/detail_destination/view/ui/detail_destination_screen.dart';
 import 'package:dolang/features/home/view/ui/home_screen.dart';
 import 'package:dolang/features/profile/bindings/profile_binding.dart';
+import 'package:dolang/features/profile/sub_features/bookmark/view/ui/bookmark_screen.dart';
+import 'package:dolang/features/profile/sub_features/personal_information/view/ui/personal_information_screen.dart';
+import 'package:dolang/features/profile/sub_features/privacy_policy/view/ui/privacy_policy_screen.dart';
 import 'package:dolang/features/profile/view/ui/profile_screen.dart';
 import 'package:dolang/features/sign_in/bindings/sign_in_binding.dart';
 import 'package:dolang/features/sign_in/view/ui/sign_in_screen.dart';
@@ -69,6 +72,21 @@ abstract class Pages {
     GetPage(
       name: Routes.profileRoute,
       page: () => ProfileScreen(),
+      binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: Routes.profilePersonalInformationRoute,
+      page: () => PersonalInformationScreen(),
+      binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: Routes.bookmarkRoute,
+      page: () => BookmarkScreen(),
+      binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: Routes.profilePrivacyPolicyRoute,
+      page: () => PrivacyPolicyScreen(),
       binding: ProfileBinding(),
     ),
   ];
