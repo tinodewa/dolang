@@ -13,7 +13,7 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RxInt currentPageIndex = 2.obs;
+    RxInt currentPageIndex = 0.obs;
     return SafeArea(
       child: Obx(
         () => Scaffold(

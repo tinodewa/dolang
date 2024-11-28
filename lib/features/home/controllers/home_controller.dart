@@ -32,7 +32,6 @@ class HomeController extends GetxController {
       if (list != null) {
         destinationList.assignAll(list);
         getDistance();
-        destinationState(DataStatus.success);
         return true;
       } else {
         destinationState(DataStatus.error);
@@ -63,8 +62,10 @@ class HomeController extends GetxController {
         destination.distance = meterToKm(distance).toString();
       }
       destinationList.sort((a, b) => a.distance!.compareTo(b.distance!));
+      destinationState(DataStatus.success);
       return destinationList.first.distance!;
     } catch (exception, stackTrace) {
+      destinationState(DataStatus.error);
       Sentry.captureException(
         exception,
         stackTrace: stackTrace,

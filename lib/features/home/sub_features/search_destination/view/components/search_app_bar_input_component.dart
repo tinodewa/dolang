@@ -18,9 +18,9 @@ class SearchAppBarInputComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: searchController,
-      style: GoogleTextStyle.fw600.copyWith(
+      style: GoogleTextStyle.fw500.copyWith(
         color: ColorStyle.blackMedium,
-        fontSize: 18.sp,
+        fontSize: 14.sp,
       ),
       cursorColor: ColorStyle.primary,
       maxLines: 1,

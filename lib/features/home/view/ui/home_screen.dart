@@ -1,7 +1,7 @@
 import 'package:dolang/features/home/constants/home_assets_constant.dart';
 import 'package:dolang/features/home/controllers/home_controller.dart';
 import 'package:dolang/features/home/view/components/item_card_component.dart';
-import 'package:dolang/features/home/view/components/search_app_bar_component.dart';
+import 'package:dolang/features/home/view/components/home_app_bar_component.dart';
 import 'package:dolang/shared/widgets/error_screen.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/utils/enums/data_status.dart';
@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const SearchAppBarComponent(),
+      appBar: const HomeAppBarComponent(),
       backgroundColor: ColorStyle.white,
       body: RefreshIndicator(
         onRefresh: () => HomeController.to.getDestination(),

@@ -21,8 +21,12 @@ class ProfileController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    userModel.value = await LocalStorageService.getLoggedUserData();
+    getUserInformation();
     getDeviceInformation();
+  }
+
+  void getUserInformation() async {
+    userModel.value = await LocalStorageService.getLoggedUserData();
   }
 
   void privacyPolicyWebView() {

@@ -1,4 +1,4 @@
-import 'package:dolang/features/profile/controllers/profile_controller.dart';
+import 'package:dolang/features/profile/sub_features/personal_information/controllers/profile_personal_information_controller.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +15,13 @@ class EditButtonComponent extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(20.r),
       child: SizedBox(
-        height: 35.h,
+        height: 45.h,
         width: 204.w,
         child: ElevatedButton(
-          onPressed: ProfileController.to.logout,
+          onPressed: () {
+            ProfilePersonalInformationController.to
+                .confirmEditPersonalInformation(context);
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: ColorStyle.primary,
             elevation: 3,

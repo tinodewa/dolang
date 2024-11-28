@@ -28,13 +28,15 @@ class PersonalInformationScreen extends StatelessWidget {
         foregroundColor: ColorStyle.white,
       ),
       backgroundColor: ColorStyle.white,
-      body: const Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          PersonalInformationBannerComponent(),
-          FormEditPersonalInformationComponent(),
-        ],
+      body: const SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            PersonalInformationBannerComponent(),
+            FormEditPersonalInformationComponent(),
+          ],
+        ),
       ),
       bottomNavigationBar: const EditButtonComponent(),
     );

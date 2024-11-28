@@ -110,12 +110,10 @@ class FormEditPersonalInformationComponent extends StatelessWidget {
             TextFormFieldCustoms(
               controller:
                   ProfilePersonalInformationController.to.addressController,
-              keyboardType: TextInputType.phone,
+              keyboardType: TextInputType.text,
               initialValue:
                   ProfilePersonalInformationController.to.addressValue.value,
               hint: 'Alamat',
-              isRequired: true,
-              requiredText: 'alamat tidak boleh kosong!'.tr,
             ),
           ],
         ),

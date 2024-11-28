@@ -48,22 +48,6 @@ class ProfileIconComponent extends StatelessWidget {
                   height: 80.h,
                   width: 80.w,
                 ),
-                // Conditional.single(
-                //   context: context,
-                //   conditionBuilder: (context) =>
-                //       ProfileController.to.imageFile != null,
-                //   widgetBuilder: (context) => Image.file(
-                //     ProfileController.to.imageFile!,
-                //     width: 170.r,
-                //     height: 170.r,
-                //     fit: BoxFit.cover,
-                //   ),
-                //   fallbackBuilder: (context) => Image.asset(
-                //     ImageConstant.user,
-                //     height: 80.h,
-                //     width: 80.w,
-                //   ),
-                // ),
               ),
             ),
           ],

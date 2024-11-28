@@ -8,6 +8,7 @@ import 'package:dolang/features/dashboard/bindings/dashboard_binding.dart';
 import 'package:dolang/features/dashboard/view/ui/dashboard_screen.dart';
 import 'package:dolang/features/home/bindings/home_binding.dart';
 import 'package:dolang/features/home/sub_features/detail_destination/view/ui/detail_destination_screen.dart';
+import 'package:dolang/features/home/sub_features/search_destination/view/ui/search_destination_screen.dart';
 import 'package:dolang/features/home/view/ui/home_screen.dart';
 import 'package:dolang/features/profile/bindings/profile_binding.dart';
 import 'package:dolang/features/profile/sub_features/bookmark/view/ui/bookmark_screen.dart';
@@ -52,6 +53,11 @@ abstract class Pages {
     GetPage(
       name: Routes.homeDetailDestinationRoute,
       page: () => DetailDestinationScreen(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.homeSearchDestinationRoute,
+      page: () => SearchDestinationScreen(),
       binding: HomeBinding(),
     ),
     GetPage(

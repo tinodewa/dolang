@@ -1,5 +1,5 @@
 import 'package:dolang/features/profile/sub_features/personal_information/controllers/profile_personal_information_controller.dart';
-import 'package:dolang/features/profile/view/components/profile_icon_component.dart';
+import 'package:dolang/features/profile/sub_features/personal_information/view/components/edit_profile_icon_personal_information_component.dart';
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class PersonalInformationBannerComponent extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 20.h),
-          const ProfileIconComponent(),
+          const EditProfileIconPersonalInformationComponent(),
           SizedBox(height: 25.h),
           GestureDetector(
             onTap: () {

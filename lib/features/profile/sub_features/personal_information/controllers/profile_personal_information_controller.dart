@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dolang/features/profile/controllers/profile_controller.dart';
 import 'package:dolang/features/profile/sub_features/personal_information/repositories/personal_information_repository.dart';
 import 'package:dolang/features/sign_in/models/users_model.dart';
 import 'package:dolang/shared/controllers/global_controller.dart';
@@ -92,11 +93,16 @@ class ProfilePersonalInformationController extends GetxController {
         if (userModel.value?.userId != null) {
           UsersModel? usermodel = await repository.putPersonalInformation(
             userModel.value!.userId!,
-            usernameValue.value,
-            phoneNumberValue.value,
-            addressValue.value,
+            usernameController.text,
+            phoneNumberController.text,
+            addressController.text,
           );
           await LocalStorageService.setAuth(usermodel);
+          ProfileController.to.getUserInformation();
+          Get.snackbar(
+            'Berhasil!',
+            'Profil pengguna sudah tersimpan.',
+          );
           EasyLoading.dismiss();
         }
       } catch (exception, stackTrace) {
