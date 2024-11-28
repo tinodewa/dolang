@@ -68,7 +68,7 @@ class HomeSearchDestinationController extends GetxController {
 
   /// Limit Destination
   Map<String, dynamic> getLimitedDestinationListOfData({int offset = 0}) {
-    int limit = 5 + offset;
+    int limit = 10 + offset;
     if (limit > destinationList.length) limit = destinationList.length;
     if (offset > limit) offset = limit;
 

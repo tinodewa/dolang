@@ -46,6 +46,7 @@ class HomeAppBarComponent extends StatelessWidget
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               flex: 4,

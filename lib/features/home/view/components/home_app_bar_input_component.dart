@@ -38,7 +38,7 @@ class HomeAppBarInputComponent extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           contentPadding: EdgeInsets.only(
-            top: 10.h,
+            top: 15.h,
           ),
           isDense: true,
           suffixIcon: Icon(
