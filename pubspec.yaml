@@ -81,6 +81,7 @@ dependencies:
   geocoding: ^2.1.0
   flutter_map: ^7.0.2
   latlong2: ^0.9.1
+  firebase_messaging: ^15.1.5
 
 # add flutter icons
 flutter_launcher_icons:

@@ -27,8 +27,8 @@ class DetailDestinationScreen extends StatelessWidget {
         valueBuilder: (context) =>
             HomeDetailDestinationController.to.detailDestinationState.value,
         caseBuilders: {
-          DataStatus.error: (context) => const ErrorScreen(
-                message: 'Error loading detail destination!',
+          DataStatus.error: (context) => ErrorScreen(
+                message: 'Terjadi kesalahan saat memuat detail destinasi!'.tr,
               ),
           DataStatus.success: (context) => Scaffold(
                 extendBody: true,

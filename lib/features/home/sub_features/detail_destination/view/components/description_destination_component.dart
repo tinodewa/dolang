@@ -3,6 +3,7 @@ import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class DescriptionDestinationComponent extends StatelessWidget {
   const DescriptionDestinationComponent({super.key});
@@ -13,7 +14,7 @@ class DescriptionDestinationComponent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Description',
+          'Deskripsi'.tr,
           style: GoogleTextStyle.fw600.copyWith(
             fontSize: 20.sp,
             color: ColorStyle.blackMedium,

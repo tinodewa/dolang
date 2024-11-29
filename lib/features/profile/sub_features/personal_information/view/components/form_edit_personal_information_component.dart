@@ -19,7 +19,7 @@ class FormEditPersonalInformationComponent extends StatelessWidget {
         20.r,
       ),
       child: Form(
-        key: ProfilePersonalInformationController.to.formKey,
+        key: ProfilePersonalInformationController.to.formPersonalInformationKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -81,7 +81,6 @@ class FormEditPersonalInformationComponent extends StatelessWidget {
               hint: 'Nama Pengguna'.tr,
               isRequired: true,
               requiredText: 'Nama pengguna tidak boleh kosong!'.tr,
-              label: 'Nama Pengguna'.tr,
             ),
             SizedBox(
               height: 20.h,
@@ -96,7 +95,7 @@ class FormEditPersonalInformationComponent extends StatelessWidget {
               keyboardType: TextInputType.phone,
               initialValue: ProfilePersonalInformationController
                   .to.phoneNumberValue.value,
-              hint: 'Nomor Telpon',
+              hint: 'Nomor Telpon'.tr,
               isRequired: true,
               requiredText: 'Nomor telpon tidak boleh kosong!'.tr,
             ),
@@ -113,7 +112,7 @@ class FormEditPersonalInformationComponent extends StatelessWidget {
               keyboardType: TextInputType.text,
               initialValue:
                   ProfilePersonalInformationController.to.addressValue.value,
-              hint: 'Alamat',
+              hint: 'Alamat'.tr,
             ),
           ],
         ),

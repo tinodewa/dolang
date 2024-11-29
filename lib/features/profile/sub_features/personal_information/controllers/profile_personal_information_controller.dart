@@ -21,7 +21,7 @@ class ProfilePersonalInformationController extends GetxController {
   Rx<UsersModel?> userModel = UsersModel().obs;
 
   /// Form Variable Setting
-  final formKey = GlobalKey<FormState>();
+  final formPersonalInformationKey = GlobalKey<FormState>();
   var emailValue = ''.obs;
   var usernameController = TextEditingController();
   var usernameValue = ''.obs;
@@ -59,10 +59,10 @@ class ProfilePersonalInformationController extends GetxController {
     try {
       PanaraConfirmDialog.show(
         context,
-        title: 'Konfirmasi',
-        message: 'Apakah anda ingin menyimpan perubahan?',
-        confirmButtonText: 'Ya',
-        cancelButtonText: 'Tidak',
+        title: 'Konfirmasi'.tr,
+        message: 'Apakah anda ingin menyimpan perubahan?'.tr,
+        confirmButtonText: 'Ya'.tr,
+        cancelButtonText: 'Tidak'.tr,
         onTapConfirm: () {
           Get.back();
           updatePersonalInformation();
@@ -85,7 +85,7 @@ class ProfilePersonalInformationController extends GetxController {
 
     if (GlobalController.to.isConnect.value == true) {
       EasyLoading.show(
-        status: 'Tunggu sebentar...',
+        status: 'Tunggu sebentar...'.tr,
         maskType: EasyLoadingMaskType.black,
         dismissOnTap: false,
       );
@@ -100,8 +100,8 @@ class ProfilePersonalInformationController extends GetxController {
           await LocalStorageService.setAuth(usermodel);
           ProfileController.to.getUserInformation();
           Get.snackbar(
-            'Berhasil!',
-            'Profil pengguna sudah tersimpan.',
+            'Berhasil!'.tr,
+            'Profil pengguna sudah tersimpan.'.tr,
           );
           EasyLoading.dismiss();
         }

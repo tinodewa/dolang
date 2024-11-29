@@ -31,8 +31,17 @@ class HomeScreen extends StatelessWidget {
                       color: ColorStyle.blackMedium,
                     ),
                   ),
-              DataStatus.error: (context) => const ErrorScreen(
-                    message: 'Error loading destination!',
+              DataStatus.error: (context) => Center(
+                    child: SingleChildScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      child: SizedBox(
+                        height: 0.7.sh,
+                        child: ErrorScreen(
+                          message:
+                              'Terjadi kesalahan saat memuat destinasi!'.tr,
+                        ),
+                      ),
+                    ),
                   ),
               DataStatus.success: (context) => ListView.separated(
                     padding: EdgeInsets.all(10.r),

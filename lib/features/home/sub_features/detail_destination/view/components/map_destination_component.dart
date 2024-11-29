@@ -4,6 +4,7 @@ import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
 
 class MapDestinationComponent extends StatelessWidget {
@@ -18,7 +19,7 @@ class MapDestinationComponent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Location',
+              'Lokasi'.tr,
               style: GoogleTextStyle.fw600.copyWith(
                 fontSize: 20.sp,
                 color: ColorStyle.blackMedium,
@@ -29,7 +30,7 @@ class MapDestinationComponent extends StatelessWidget {
                 HomeDetailDestinationController.to.openOnMaps();
               },
               child: Text(
-                'Open on maps >',
+                'Buka di maps >'.tr,
                 style: GoogleTextStyle.fw500.copyWith(
                   fontSize: 14.sp,
                   color: ColorStyle.complementary,

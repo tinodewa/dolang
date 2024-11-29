@@ -42,7 +42,7 @@ class SubInfoDestinationComponent extends StatelessWidget {
         ),
         SizedBox(width: 2.w),
         Text(
-          '14km',
+          HomeDetailDestinationController.to.destination?.distance ?? '',
           style: GoogleTextStyle.fw400.copyWith(
             fontSize: 14.sp,
             color: ColorStyle.greyDark,

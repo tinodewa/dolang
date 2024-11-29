@@ -3,6 +3,7 @@ import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class MainInfoDestinationComponent extends StatelessWidget {
   const MainInfoDestinationComponent({
@@ -32,7 +33,7 @@ class MainInfoDestinationComponent extends StatelessWidget {
                           .toString()) !=
                       0
                   ? 'Rp ${HomeDetailDestinationController.to.destination?.pricePerPerson}'
-                  : 'Gratis',
+                  : 'Gratis'.tr,
               style: GoogleTextStyle.fw500.copyWith(
                 fontSize: 15.sp,
                 color: ColorStyle.blackMedium,
@@ -43,7 +44,7 @@ class MainInfoDestinationComponent extends StatelessWidget {
                           .to.destination!.pricePerPerson!
                           .toString()) !=
                       0
-                  ? '/orang'
+                  ? '/${'orang'.tr}'
                   : '',
               style: GoogleTextStyle.fw400.copyWith(
                 fontSize: 13.sp,

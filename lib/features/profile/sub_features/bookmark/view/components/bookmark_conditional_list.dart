@@ -6,7 +6,7 @@ import 'package:dolang/utils/enums/data_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 
 class BookmarkConditionalList extends StatelessWidget {
   const BookmarkConditionalList({
@@ -26,8 +26,8 @@ class BookmarkConditionalList extends StatelessWidget {
                   color: ColorStyle.blackMedium,
                 ),
               ),
-          DataStatus.error: (context) => const ErrorScreen(
-                message: 'Error loading bookmark!',
+          DataStatus.error: (context) => ErrorScreen(
+                message: 'Terjadi kesalahan saat memuat bookmark!'.tr,
               ),
           DataStatus.success: (context) => ListView.separated(
                 padding: EdgeInsets.all(10.r),

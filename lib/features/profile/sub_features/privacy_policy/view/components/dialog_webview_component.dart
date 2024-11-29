@@ -1,6 +1,7 @@
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:get/get.dart';
 
 class DialogWebviewComponent extends StatelessWidget {
   const DialogWebviewComponent({super.key});
@@ -18,7 +19,7 @@ class DialogWebviewComponent extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text("In Frame Webview"),
+            Text("In Frame Webview".tr),
             const SizedBox(height: 8),
             Expanded(
               child: Container(

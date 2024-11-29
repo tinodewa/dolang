@@ -19,7 +19,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text('Privacy & Policy'.tr),
+        title: Text('Privasi & Kebijakan'.tr),
       ),
       body: InAppWebView(
         initialUrlRequest: URLRequest(

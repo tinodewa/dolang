@@ -13,7 +13,7 @@ class FormSignUpComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: SignUpController.to.formKey,
+      key: SignUpController.to.formSignUpKey,
       child: Column(
         children: [
           TextFormFieldCustoms(
@@ -42,7 +42,7 @@ class FormSignUpComponent extends StatelessWidget {
             controller: SignUpController.to.phoneNumberController,
             keyboardType: TextInputType.phone,
             initialValue: SignUpController.to.phoneNumberValue.value,
-            hint: 'Nomor Telpon',
+            hint: 'Nomor Telpon'.tr,
             isRequired: true,
             requiredText: 'Nomor telpon tidak boleh kosong!'.tr,
           ),
@@ -54,10 +54,10 @@ class FormSignUpComponent extends StatelessWidget {
               controller: SignUpController.to.passwordController,
               keyboardType: TextInputType.visiblePassword,
               initialValue: SignUpController.to.passwordValue.value,
-              hint: 'Password',
+              hint: 'Kata Sandi'.tr,
               isRequired: true,
               isPassword: SignUpController.to.isPassword.value,
-              requiredText: 'Password tidak boleh kosong!'.tr,
+              requiredText: 'Kata sandi tidak boleh kosong!'.tr,
               suffixIcon: GestureDetector(
                 onTap: () => SignUpController.to.showPassword(),
                 child: Align(
@@ -82,10 +82,10 @@ class FormSignUpComponent extends StatelessWidget {
               controller: SignUpController.to.passwordConfirmationController,
               keyboardType: TextInputType.visiblePassword,
               initialValue: SignUpController.to.passwordConfirmationValue.value,
-              hint: 'Konfirmasi Ulang Password',
+              hint: 'Konfirmasi Ulang Kata Sandi'.tr,
               isRequired: true,
               isPassword: SignUpController.to.isPasswordConfirmation.value,
-              requiredText: 'Konfirmasi Password tidak boleh kosong!'.tr,
+              requiredText: 'Konfirmasi kata sandi tidak boleh kosong!'.tr,
               suffixIcon: GestureDetector(
                 onTap: () => SignUpController.to.showPasswordConfirmation(),
                 child: Align(

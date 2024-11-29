@@ -54,7 +54,7 @@ class BottomNavbarDetailDestinationComponent extends StatelessWidget {
             elevation: 3,
           ),
           child: Text(
-            'Booking',
+            'Pesan'.tr,
             style: GoogleTextStyle.fw700.copyWith(
               fontSize: 14.0,
               color: ColorStyle.blackMedium,

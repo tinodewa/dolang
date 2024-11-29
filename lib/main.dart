@@ -4,10 +4,11 @@ import 'package:dolang/firebase_options.dart';
 import 'package:dolang/my_app.dart';
 import 'package:dolang/utils/services/local_storage_service.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
-Future<void> main() async {
+void main() async {
   // RunZoneGuarded untuk menangkap error yang terjadi di dalam aplikasi
   runZonedGuarded(
     () async {
@@ -21,6 +22,14 @@ Future<void> main() async {
       await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
+
+      // You may set the permission requests to "provisional" which allows the user to choose what type
+      // of notifications they would like to receive once the user receives a notification.
+      final notificationSettings =
+          await FirebaseMessaging.instance.requestPermission(provisional: true);
+
+      final fcmToken = await FirebaseMessaging.instance.getToken();
+      print('FCM Token $fcmToken');
 
       /// Initialize Sentry
       await SentryFlutter.init(

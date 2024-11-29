@@ -13,16 +13,16 @@ class FormSignInComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: SignInController.to.formKey,
+      key: SignInController.to.formSignInKey,
       child: Column(
         children: [
           TextFormFieldCustoms(
             controller: SignInController.to.emailController,
             keyboardType: TextInputType.emailAddress,
             initialValue: SignInController.to.emailValue.value,
-            hint: 'Email Address',
+            hint: 'Alamat Email'.tr,
             isRequired: true,
-            requiredText: 'Email address tidak boleh kosong!'.tr,
+            requiredText: 'Alamat email tidak boleh kosong!'.tr,
           ),
           SizedBox(
             height: 20.h,
@@ -32,10 +32,10 @@ class FormSignInComponent extends StatelessWidget {
               controller: SignInController.to.passwordController,
               keyboardType: TextInputType.visiblePassword,
               initialValue: SignInController.to.passwordValue.value,
-              hint: 'Password',
+              hint: 'Kata Sandi'.tr,
               isRequired: true,
               isPassword: SignInController.to.isPassword.value,
-              requiredText: 'Password tidak boleh kosong!'.tr,
+              requiredText: 'Kata sandi tidak boleh kosong!'.tr,
               suffixIcon: GestureDetector(
                 onTap: () => SignInController.to.showPassword(),
                 child: Align(

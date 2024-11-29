@@ -12,7 +12,7 @@ class SignUpController extends GetxController {
   static SignUpController get to => Get.find();
 
   /// Form Variable Setting
-  final formKey = GlobalKey<FormState>();
+  final formSignUpKey = GlobalKey<FormState>();
   var usernameController = TextEditingController();
   var usernameValue = ''.obs;
   var emailController = TextEditingController();
@@ -67,7 +67,7 @@ class SignUpController extends GetxController {
   void validateForm(context) async {
     await GlobalController.to.checkConnection();
 
-    var isValid = formKey.currentState!.validate();
+    var isValid = formSignUpKey.currentState!.validate();
     Get.focusScope!.unfocus();
 
     if (isValid && GlobalController.to.isConnect.value == true) {
@@ -76,12 +76,12 @@ class SignUpController extends GetxController {
       if (isPasswordMatch) {
         if (isConfirmationApproved.value) {
           EasyLoading.show(
-            status: 'Tunggu sebentar...',
+            status: 'Tunggu sebentar...'.tr,
             maskType: EasyLoadingMaskType.black,
             dismissOnTap: false,
           );
 
-          formKey.currentState!.save();
+          formSignUpKey.currentState!.save();
           try {
             bool isRegistered = await checkEmailRegistered(
               emailController.text,
@@ -90,9 +90,9 @@ class SignUpController extends GetxController {
               EasyLoading.dismiss();
               PanaraInfoDialog.show(
                 context,
-                title: 'Perhatian!',
-                message: 'Email sudah terdaftar.',
-                buttonText: 'Ok',
+                title: 'Perhatian!'.tr,
+                message: 'Email sudah terdaftar.'.tr,
+                buttonText: 'Oke'.tr,
                 onTapDismiss: () {
                   Get.back();
                 },
@@ -115,9 +115,9 @@ class SignUpController extends GetxController {
             EasyLoading.dismiss();
             PanaraInfoDialog.show(
               context,
-              title: 'Perhatian!',
-              message: 'Error, coba lagi nanti.',
-              buttonText: 'Ok',
+              title: 'Perhatian!'.tr,
+              message: 'Error, coba lagi nanti.'.tr,
+              buttonText: 'Oke'.tr,
               onTapDismiss: () {
                 Get.back();
               },
@@ -132,9 +132,9 @@ class SignUpController extends GetxController {
         } else {
           PanaraInfoDialog.show(
             context,
-            title: 'Perhatian!',
-            message: 'Mohon konfirmasi privasi pengguna dan kebijakan.',
-            buttonText: 'Ok',
+            title: 'Perhatian!'.tr,
+            message: 'Mohon konfirmasi privasi pengguna dan kebijakan.'.tr,
+            buttonText: 'Oke'.tr,
             onTapDismiss: () {
               Get.back();
             },
@@ -145,9 +145,9 @@ class SignUpController extends GetxController {
       } else {
         PanaraInfoDialog.show(
           context,
-          title: 'Perhatian!',
-          message: 'Password dan Konfirmasi Password tidak sama.',
-          buttonText: 'Ok',
+          title: 'Perhatian!'.tr,
+          message: 'Password dan Konfirmasi Password tidak sama.'.tr,
+          buttonText: 'Oke'.tr,
           onTapDismiss: () {
             Get.back();
           },

@@ -55,7 +55,7 @@ class HomeDetailDestinationController extends GetxController {
     if (GlobalController.to.isConnect.value == true) {
       try {
         EasyLoading.show(
-          status: 'Tunggu sebentar...',
+          status: 'Tunggu sebentar...'.tr,
           maskType: EasyLoadingMaskType.black,
           dismissOnTap: false,
         );
@@ -96,7 +96,7 @@ class HomeDetailDestinationController extends GetxController {
     if (GlobalController.to.isConnect.value == true) {
       try {
         EasyLoading.show(
-          status: 'Tunggu sebentar...',
+          status: 'Tunggu sebentar...'.tr,
           maskType: EasyLoadingMaskType.black,
           dismissOnTap: false,
         );
@@ -108,8 +108,8 @@ class HomeDetailDestinationController extends GetxController {
           if (isPosted) {
             isBookmark.value = true;
             Get.snackbar(
-              'Berhasil! menambahkan destinasi!',
-              'Yuk cari destinasi lainnya.',
+              'Berhasil menyimpan destinasi!'.tr,
+              'Yuk cari destinasi lainnya.'.tr,
               colorText: ColorStyle.white,
             );
           }
@@ -118,7 +118,9 @@ class HomeDetailDestinationController extends GetxController {
       } catch (exception, stackTrace) {
         EasyLoading.dismiss();
         Get.snackbar(
-            'Gagal!', 'Terjadi masalah dengan server, coba lagi nanti.');
+          'Gagal!'.tr,
+          'Terjadi masalah dengan server, coba lagi nanti.'.tr,
+        );
         await Sentry.captureException(
           exception,
           stackTrace: stackTrace,
@@ -133,7 +135,7 @@ class HomeDetailDestinationController extends GetxController {
     if (GlobalController.to.isConnect.value == true) {
       try {
         EasyLoading.show(
-          status: 'Tunggu sebentar...',
+          status: 'Tunggu sebentar...'.tr,
           maskType: EasyLoadingMaskType.black,
           dismissOnTap: false,
         );
@@ -145,8 +147,8 @@ class HomeDetailDestinationController extends GetxController {
           if (isDeleted) {
             isBookmark.value = false;
             Get.snackbar(
-              'Berhasil menghapus destinasi!',
-              'Yuk cari destinasi lainnya.',
+              'Berhasil menghapus destinasi!'.tr,
+              'Yuk cari destinasi lainnya.'.tr,
               colorText: ColorStyle.white,
             );
           }
@@ -155,7 +157,9 @@ class HomeDetailDestinationController extends GetxController {
       } catch (exception, stackTrace) {
         EasyLoading.dismiss();
         Get.snackbar(
-            'Gagal!', 'Terjadi masalah dengan server, coba lagi nanti.');
+          'Gagal!'.tr,
+          'Terjadi masalah dengan server, coba lagi nanti.'.tr,
+        );
         await Sentry.captureException(
           exception,
           stackTrace: stackTrace,

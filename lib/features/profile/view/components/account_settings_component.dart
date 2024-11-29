@@ -24,7 +24,7 @@ class AccountSettingsComponent extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Account Settings',
+              'Pengaturan Akun'.tr,
               style: GoogleTextStyle.fw500.copyWith(
                 fontSize: 18.sp,
                 color: ColorStyle.greyDark,
@@ -39,7 +39,7 @@ class AccountSettingsComponent extends StatelessWidget {
                 arguments: ProfileController.to.userModel.value,
               );
             },
-            title: 'Personal Information',
+            title: 'Informasi Pribadi'.tr,
             message: '',
             titleStyle: GoogleTextStyle.fw600.copyWith(
               fontSize: 14.sp,
@@ -50,7 +50,7 @@ class AccountSettingsComponent extends StatelessWidget {
             onTap: () {
               Get.toNamed(Routes.bookmarkRoute);
             },
-            title: 'Bookmark',
+            title: 'Bookmark'.tr,
             message: '',
             titleStyle: GoogleTextStyle.fw600.copyWith(
               fontSize: 14.sp,
@@ -61,7 +61,7 @@ class AccountSettingsComponent extends StatelessWidget {
             onTap: () {
               ProfileController.to.updateLanguage();
             },
-            title: 'Change Language',
+            title: 'Change Language'.tr,
             message: '',
             titleStyle: GoogleTextStyle.fw600.copyWith(
               fontSize: 14.sp,

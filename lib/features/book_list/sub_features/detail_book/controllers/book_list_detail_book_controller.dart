@@ -37,10 +37,10 @@ class BookListDetailBookController extends GetxController {
     try {
       PanaraConfirmDialog.show(
         context,
-        title: 'Konfirmasi',
-        message: 'Apakah anda ingin membatalkan pemesanan?',
-        confirmButtonText: 'Ya',
-        cancelButtonText: 'Tidak',
+        title: 'Konfirmasi'.tr,
+        message: 'Apakah anda ingin membatalkan pemesanan?'.tr,
+        confirmButtonText: 'Ya'.tr,
+        cancelButtonText: 'Tidak'.tr,
         onTapConfirm: () {
           Get.back();
           cancelBook();
@@ -63,7 +63,7 @@ class BookListDetailBookController extends GetxController {
 
     if (GlobalController.to.isConnect.value == true) {
       EasyLoading.show(
-        status: 'Tunggu sebentar...',
+        status: 'Tunggu sebentar...'.tr,
         maskType: EasyLoadingMaskType.black,
         dismissOnTap: false,
       );
@@ -91,10 +91,10 @@ class BookListDetailBookController extends GetxController {
     try {
       PanaraConfirmDialog.show(
         context,
-        title: 'Konfirmasi',
-        message: 'Apakah anda ingin membayar pemesanan?',
-        confirmButtonText: 'Ya',
-        cancelButtonText: 'Tidak',
+        title: 'Konfirmasi'.tr,
+        message: 'Apakah anda ingin membayar pemesanan?'.tr,
+        confirmButtonText: 'Ya'.tr,
+        cancelButtonText: 'Tidak'.tr,
         onTapConfirm: () {
           Get.back();
           paymentBook();
@@ -117,7 +117,7 @@ class BookListDetailBookController extends GetxController {
 
     if (GlobalController.to.isConnect.value == true) {
       EasyLoading.show(
-        status: 'Tunggu sebentar...',
+        status: 'Tunggu sebentar...'.tr,
         maskType: EasyLoadingMaskType.black,
         dismissOnTap: false,
       );

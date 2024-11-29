@@ -3,6 +3,7 @@ import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class ItemCardInformationComponent extends StatelessWidget {
   const ItemCardInformationComponent({
@@ -61,7 +62,7 @@ class ItemCardInformationComponent extends StatelessWidget {
                         Text(
                           int.parse(destination.pricePerPerson.toString()) != 0
                               ? 'Rp ${destination.pricePerPerson}'
-                              : 'Gratis',
+                              : 'Gratis'.tr,
                           style: GoogleTextStyle.fw500.copyWith(
                             fontSize: 15.sp,
                             color: ColorStyle.blackMedium,
@@ -69,7 +70,7 @@ class ItemCardInformationComponent extends StatelessWidget {
                         ),
                         Text(
                           int.parse(destination.pricePerPerson.toString()) != 0
-                              ? '/orang'
+                              ? '/${'orang'.tr}'
                               : '',
                           style: GoogleTextStyle.fw400.copyWith(
                             fontSize: 13.sp,

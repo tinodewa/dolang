@@ -73,7 +73,7 @@ class ButtonSocialMediaLoginComponent extends StatelessWidget {
               width: 10,
             ),
             Text(
-              'Sign up with ',
+              'Daftar dengan ',
               style: GoogleTextStyle.fw400.copyWith(
                 fontSize: 14.0,
                 color: textColor,

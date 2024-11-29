@@ -3,6 +3,7 @@ import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 class ButtonInformationCheckComponent extends StatelessWidget {
@@ -49,7 +50,7 @@ class ButtonInformationCheckComponent extends StatelessWidget {
             elevation: 3,
           ),
           child: Text(
-            'Selanjutnya',
+            'Selanjutnya'.tr,
             style: GoogleTextStyle.fw700.copyWith(
               fontSize: 14.0,
               color: ColorStyle.blackMedium,

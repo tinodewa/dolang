@@ -32,9 +32,6 @@ class GlobalController extends GetxController {
 
     /// Check Connection
     checkConnection();
-
-    /// Check Auth
-    checkAuth();
   }
 
   @override
@@ -49,7 +46,7 @@ class GlobalController extends GetxController {
     final isLogin = await LocalStorageService.getAuth();
     if (isLogin == null) {
       await LocalStorageService.deleteAuth();
-      Get.offAllNamed(Routes.signInRoute);
+      // Get.offAllNamed(Routes.signInRoute);
     } else {
       if (isLogin != false) {
         Get.offAllNamed(Routes.dashboardRoute);
@@ -73,8 +70,8 @@ class GlobalController extends GetxController {
         stackTrace: stackTrace,
       );
       Get.snackbar(
-        'Error',
-        'No internet connection',
+        'Error'.tr,
+        'No internet connection.'.tr,
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Get.theme.snackBarTheme.backgroundColor,
         colorText: Get.theme.snackBarTheme.actionTextColor,

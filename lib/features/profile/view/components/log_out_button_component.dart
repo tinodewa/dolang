@@ -29,7 +29,7 @@ class LogOutButtonComponent extends StatelessWidget {
           ),
         ),
         child: Text(
-          "Log out".tr,
+          "Keluar".tr,
           style: GoogleTextStyle.fw800.copyWith(
             fontSize: 14.sp,
             color: ColorStyle.white,

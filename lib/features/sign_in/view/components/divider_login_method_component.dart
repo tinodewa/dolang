@@ -1,5 +1,6 @@
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DividerLoginMethodComponent extends StatelessWidget {
   const DividerLoginMethodComponent({
@@ -8,21 +9,21 @@ class DividerLoginMethodComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // Add the first divider
-        Flexible(
+        const Flexible(
           child: Divider(
             color: ColorStyle.greyDark50,
           ),
         ),
         // Add the text in the middle
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 13),
+          padding: const EdgeInsets.symmetric(horizontal: 13),
           child: Text(
-            'or',
-            style: TextStyle(
+            'atau'.tr,
+            style: const TextStyle(
               color: ColorStyle.blackMedium,
               backgroundColor: Colors.transparent,
               fontSize: 14.0,
@@ -30,7 +31,7 @@ class DividerLoginMethodComponent extends StatelessWidget {
           ),
         ),
         // Add the second divider
-        Flexible(
+        const Flexible(
           child: Divider(
             color: ColorStyle.greyDark50,
           ),

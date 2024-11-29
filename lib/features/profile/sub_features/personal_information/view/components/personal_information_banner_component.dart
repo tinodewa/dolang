@@ -4,6 +4,7 @@ import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class PersonalInformationBannerComponent extends StatelessWidget {
   const PersonalInformationBannerComponent({
@@ -24,7 +25,7 @@ class PersonalInformationBannerComponent extends StatelessWidget {
               ProfilePersonalInformationController.to.pickImage();
             },
             child: Text(
-              'Ganti Foto Profil',
+              'Ganti Foto Profil'.tr,
               style: GoogleTextStyle.fw600.copyWith(
                 fontSize: 16.sp,
                 color: ColorStyle.white,

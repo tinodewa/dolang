@@ -4,6 +4,7 @@ import 'package:dolang/features/profile/sub_features/bookmark/view/components/bo
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class BookmarkScreen extends StatelessWidget {
   BookmarkScreen({super.key});
@@ -14,7 +15,7 @@ class BookmarkScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Bookmark',
+          'Bookmark'.tr,
           style: TextStyle(
             color: ColorStyle.blackMedium,
             fontSize: 18.sp,

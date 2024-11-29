@@ -66,7 +66,8 @@ class SignUpScreen extends StatelessWidget {
                         horizontal: 30.h,
                       ),
                       child: Text(
-                        'Silahkan mengisi semua informasi yang dibutuhkan untuk membuat akun baru',
+                        'Silahkan mengisi semua informasi yang dibutuhkan untuk membuat akun baru'
+                            .tr,
                         style: GoogleTextStyle.fw600.copyWith(
                           fontSize: 16.sp,
                           color: ColorStyle.greyDark,

@@ -7,6 +7,7 @@ import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class DetailBookScreen extends StatelessWidget {
   DetailBookScreen({super.key});
@@ -17,7 +18,7 @@ class DetailBookScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Data Pemesanan',
+          'Data Pemesanan'.tr,
           style: GoogleTextStyle.fw600.copyWith(
             fontSize: 22.sp,
             color: ColorStyle.blackMedium,
@@ -35,7 +36,7 @@ class DetailBookScreen extends StatelessWidget {
               // Name
               SizedBox(height: 5.h),
               TileConfirmationComponent(
-                title: 'Nama',
+                title: 'Nama'.tr,
                 message: BookListDetailBookController.to.book?.bookerName ?? '',
               ),
               SizedBox(height: 5.h),
@@ -44,7 +45,7 @@ class DetailBookScreen extends StatelessWidget {
               // Phone Number
               SizedBox(height: 5.h),
               TileConfirmationComponent(
-                title: 'Nomor Telpon',
+                title: 'Nomor Telpon'.tr,
                 message:
                     BookListDetailBookController.to.book?.bookerPhoneNumber ??
                         '',
@@ -55,7 +56,7 @@ class DetailBookScreen extends StatelessWidget {
               // Date
               SizedBox(height: 5.h),
               TileConfirmationComponent(
-                title: 'Tanggal',
+                title: 'Tanggal'.tr,
                 message:
                     BookListDetailBookController.to.book?.bookingDate ?? '',
               ),
@@ -65,7 +66,7 @@ class DetailBookScreen extends StatelessWidget {
               // Time
               SizedBox(height: 5.h),
               TileConfirmationComponent(
-                title: 'Waktu',
+                title: 'Waktu'.tr,
                 message:
                     BookListDetailBookController.to.book?.bookingTime ?? '',
               ),
@@ -75,7 +76,7 @@ class DetailBookScreen extends StatelessWidget {
               // Number of Person
               SizedBox(height: 5.h),
               TileConfirmationComponent(
-                title: 'Jumlah Orang',
+                title: 'Jumlah Orang'.tr,
                 message:
                     BookListDetailBookController.to.book?.numberOfPerson ?? '',
               ),
@@ -85,7 +86,7 @@ class DetailBookScreen extends StatelessWidget {
               // Total Payment
               SizedBox(height: 5.h),
               TileConfirmationComponent(
-                title: 'Total Harga',
+                title: 'Total Harga'.tr,
                 message:
                     BookListDetailBookController.to.book?.totalPayment ?? '',
               ),

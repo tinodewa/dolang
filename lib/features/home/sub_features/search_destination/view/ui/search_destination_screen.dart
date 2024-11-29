@@ -1,5 +1,4 @@
 import 'package:dolang/features/home/constants/home_assets_constant.dart';
-import 'package:dolang/features/home/controllers/home_controller.dart';
 import 'package:dolang/features/home/sub_features/search_destination/controllers/home_search_destination_controller.dart';
 import 'package:dolang/features/home/sub_features/search_destination/view/components/search_app_bar_input_component.dart';
 import 'package:dolang/features/home/view/components/item_card_component.dart';
@@ -66,8 +65,8 @@ class SearchDestinationScreen extends StatelessWidget {
                     .to.filteredDestinationList.length,
               ),
             ),
-            fallbackBuilder: (context) => const ErrorScreen(
-              message: 'Destinasi tidak ada!',
+            fallbackBuilder: (context) => ErrorScreen(
+              message: 'Destinasi tidak ada!'.tr,
             ),
           ),
         ),

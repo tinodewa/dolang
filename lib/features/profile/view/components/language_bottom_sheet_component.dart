@@ -35,7 +35,7 @@ class LanguageBottomSheetComponent extends StatelessWidget {
           ),
           16.verticalSpacingRadius,
           Text(
-            'Change language'.tr,
+            'Ubah Bahasa'.tr,
             style: GoogleTextStyle.fw700.copyWith(
               fontSize: 18.sp,
               color: ColorStyle.blackMedium,

@@ -18,7 +18,7 @@ class BookListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Book List',
+          'Daftar Pemesanan'.tr,
           style: TextStyle(
             color: ColorStyle.blackMedium,
             fontSize: 18.sp,
@@ -42,8 +42,16 @@ class BookListScreen extends StatelessWidget {
                       color: ColorStyle.blackMedium,
                     ),
                   ),
-              DataStatus.error: (context) => const ErrorScreen(
-                    message: 'Error loading destination!',
+              DataStatus.error: (context) => Center(
+                    child: SingleChildScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      child: SizedBox(
+                        height: 0.7.sh,
+                        child: ErrorScreen(
+                          message: 'Terjadi kesalahan saat memuat pesanan!'.tr,
+                        ),
+                      ),
+                    ),
                   ),
               DataStatus.success: (context) => ListView.separated(
                     padding: EdgeInsets.all(20.r),

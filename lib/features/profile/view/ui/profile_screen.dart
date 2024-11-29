@@ -6,6 +6,7 @@ import 'package:dolang/features/profile/view/components/profile_banner_component
 import 'package:dolang/shared/styles/color_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
@@ -16,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Profile',
+          'Profil'.tr,
           style: TextStyle(
             color: ColorStyle.white,
             fontSize: 18.sp,

@@ -4,6 +4,7 @@ import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:dolang/shared/widgets/tile_option_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class OtherSettingsComponent extends StatelessWidget {
   const OtherSettingsComponent({
@@ -22,7 +23,7 @@ class OtherSettingsComponent extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Other',
+              'Lainnya'.tr,
               style: GoogleTextStyle.fw500.copyWith(
                 fontSize: 18.sp,
                 color: ColorStyle.greyDark,
@@ -34,7 +35,7 @@ class OtherSettingsComponent extends StatelessWidget {
             onTap: () {
               ProfileController.to.privacyPolicyWebView();
             },
-            title: 'Privacy & Policy',
+            title: 'Privasi & Kebijakan'.tr,
             message: '',
             titleStyle: GoogleTextStyle.fw600.copyWith(
               fontSize: 14.sp,
@@ -42,7 +43,7 @@ class OtherSettingsComponent extends StatelessWidget {
             ),
           ),
           TileOptionComponent(
-            title: 'Device Information',
+            title: 'Informasi Perangkat'.tr,
             message: ProfileController.to.deviceModel.value,
             titleStyle: GoogleTextStyle.fw600.copyWith(
               fontSize: 14.sp,
@@ -50,7 +51,7 @@ class OtherSettingsComponent extends StatelessWidget {
             ),
           ),
           TileOptionComponent(
-            title: 'Device Version',
+            title: 'Versi Perangkat'.tr,
             message: ProfileController.to.deviceVersion.value,
             titleStyle: GoogleTextStyle.fw600.copyWith(
               fontSize: 14.sp,

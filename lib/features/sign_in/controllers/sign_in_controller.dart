@@ -15,7 +15,7 @@ class SignInController extends GetxController {
   static SignInController get to => Get.find();
 
   /// Form Variable Setting
-  final formKey = GlobalKey<FormState>();
+  final formSignInKey = GlobalKey<FormState>();
   var emailController = TextEditingController();
   var emailValue = ''.obs;
   var passwordController = TextEditingController();
@@ -51,17 +51,17 @@ class SignInController extends GetxController {
   void validateForm(context) async {
     await GlobalController.to.checkConnection();
 
-    var isValid = formKey.currentState!.validate();
+    var isValid = formSignInKey.currentState!.validate();
     Get.focusScope!.unfocus();
 
     if (isValid && GlobalController.to.isConnect.value == true) {
       EasyLoading.show(
-        status: 'Tunggu sebentar...',
+        status: 'Tunggu sebentar...'.tr,
         maskType: EasyLoadingMaskType.black,
         dismissOnTap: false,
       );
 
-      formKey.currentState!.save();
+      formSignInKey.currentState!.save();
       try {
         UsersModel? usersModel = await checkEmailRegistered(
           emailController.text,
@@ -74,9 +74,9 @@ class SignInController extends GetxController {
           EasyLoading.dismiss();
           PanaraInfoDialog.show(
             context,
-            title: 'Perhatian!',
-            message: 'Email dan password salah.',
-            buttonText: 'Ok',
+            title: 'Perhatian!'.tr,
+            message: 'Email dan password salah.'.tr,
+            buttonText: 'Oke'.tr,
             onTapDismiss: () {
               Get.back();
             },
@@ -88,9 +88,9 @@ class SignInController extends GetxController {
         EasyLoading.dismiss();
         PanaraInfoDialog.show(
           context,
-          title: 'Perhatian!',
-          message: 'Error, coba lagi nanti.',
-          buttonText: 'Ok',
+          title: 'Perhatian!'.tr,
+          message: 'Error, coba lagi nanti.'.tr,
+          buttonText: 'Oke'.tr,
           onTapDismiss: () {
             Get.back();
           },
@@ -110,7 +110,7 @@ class SignInController extends GetxController {
     try {
       await GlobalController.to.checkConnection();
       EasyLoading.show(
-        status: 'Sedang diproses...'.tr,
+        status: 'Tunggu sebentar...'.tr,
         maskType: EasyLoadingMaskType.black,
         dismissOnTap: false,
       );
@@ -143,9 +143,9 @@ class SignInController extends GetxController {
         EasyLoading.dismiss();
         PanaraInfoDialog.show(
           context,
-          title: 'Perhatian!',
-          message: 'Gagal, coba lagi nanti.',
-          buttonText: 'Ok',
+          title: 'Perhatian!'.tr,
+          message: 'Gagal, coba lagi nanti.'.tr,
+          buttonText: 'Oke'.tr,
           onTapDismiss: () {
             Get.back();
           },
@@ -157,9 +157,9 @@ class SignInController extends GetxController {
       EasyLoading.dismiss();
       PanaraInfoDialog.show(
         context,
-        title: 'Perhatian!',
-        message: 'Gagal, coba lagi nanti.',
-        buttonText: 'Ok',
+        title: 'Perhatian!'.tr,
+        message: 'Gagal, coba lagi nanti.'.tr,
+        buttonText: 'Oke'.tr,
         onTapDismiss: () {
           Get.back();
         },

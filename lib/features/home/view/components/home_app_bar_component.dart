@@ -108,7 +108,7 @@ class HomeAppBarComponent extends StatelessWidget
                         SizedBox(width: 5.w),
                         Expanded(
                           child: Text(
-                            'Loading...',
+                            'Memuat...'.tr,
                             style: GoogleTextStyle.fw400.copyWith(
                               fontSize: 11.sp,
                               color: ColorStyle.blackMedium,
