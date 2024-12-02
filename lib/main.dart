@@ -68,7 +68,7 @@ void main() async {
 }
 
 void _handleMessage(RemoteMessage message) {
-  print('ada');
+  print('asda');
   print('halo ${message.data}');
   if (message.data['type'] == 'chat') {
     print('halo ${message.data['type']}');
