@@ -6,6 +6,7 @@ import 'package:dolang/utils/services/local_storage_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 void main() async {
@@ -31,6 +32,21 @@ void main() async {
       final fcmToken = await FirebaseMessaging.instance.getToken();
       print('FCM Token $fcmToken');
 
+      // Get any messages which caused the application to open from
+      // a terminated state.
+      RemoteMessage? initialMessage =
+          await FirebaseMessaging.instance.getInitialMessage();
+
+      // If the message also contains a data property with a "type" of "chat",
+      // navigate to a chat screen
+      if (initialMessage != null) {
+        _handleMessage(initialMessage);
+      }
+
+      // Also handle any interaction when the app is in the background via a
+      // Stream listener
+      FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
+
       /// Initialize Sentry
       await SentryFlutter.init(
         (options) {
@@ -49,4 +65,12 @@ void main() async {
       Sentry.captureException(error, stackTrace: stack);
     },
   );
+}
+
+void _handleMessage(RemoteMessage message) {
+  print('ada');
+  print('halo ${message.data}');
+  if (message.data['type'] == 'chat') {
+    print('halo ${message.data['type']}');
+  }
 }
