@@ -61,7 +61,7 @@ class AccountSettingsComponent extends StatelessWidget {
             onTap: () {
               ProfileController.to.updateLanguage();
             },
-            title: 'Change Language'.tr,
+            title: 'Ubah Bahasa'.tr,
             message: '',
             titleStyle: GoogleTextStyle.fw600.copyWith(
               fontSize: 14.sp,

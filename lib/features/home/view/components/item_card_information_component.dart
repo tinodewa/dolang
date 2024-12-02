@@ -113,7 +113,9 @@ class ItemCardInformationComponent extends StatelessWidget {
                     ),
                     SizedBox(width: 2.w),
                     Text(
-                      '${destination.distance} km',
+                      destination.distance != null
+                          ? '${destination.distance} km'
+                          : '',
                       style: GoogleTextStyle.fw400.copyWith(
                         fontSize: 11.sp,
                         color: ColorStyle.greyDark,

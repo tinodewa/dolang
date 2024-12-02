@@ -3,6 +3,7 @@ import 'package:dolang/shared/styles/color_style.dart';
 import 'package:dolang/shared/styles/google_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class BookStatusChipComponent extends StatelessWidget {
   const BookStatusChipComponent({
@@ -19,13 +20,13 @@ class BookStatusChipComponent extends StatelessWidget {
 
     if (book.paymentStatus == '1') {
       color = ColorStyle.primary;
-      status = 'Pending';
+      status = 'tertunda'.tr;
     } else if (book.paymentStatus == '2') {
       color = ColorStyle.complementary;
-      status = 'Success';
+      status = 'Sukses'.tr;
     } else {
       color = ColorStyle.red;
-      status = 'Canceled';
+      status = 'Dibatalkan'.tr;
     }
 
     return Container(

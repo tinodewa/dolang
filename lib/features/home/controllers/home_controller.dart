@@ -65,7 +65,7 @@ class HomeController extends GetxController {
       destinationState(DataStatus.success);
       return destinationList.first.distance!;
     } catch (exception, stackTrace) {
-      destinationState(DataStatus.error);
+      destinationState(DataStatus.success);
       Sentry.captureException(
         exception,
         stackTrace: stackTrace,
